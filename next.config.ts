@@ -10,9 +10,9 @@ const cspHeader = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline'",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' blob: data: https://*.public.blob.vercel-storage.com",
-  "media-src 'self' blob: data: https://*.public.blob.vercel-storage.com",
-  "connect-src 'self' https://*.public.blob.vercel-storage.com",
+  "img-src 'self' blob: data:",
+  "media-src 'self' blob: data:",
+  "connect-src 'self'",
   "font-src 'self' data:",
   "object-src 'self'",
   "frame-ancestors 'none'",
@@ -79,13 +79,6 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60,
-
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "*.public.blob.vercel-storage.com",
-      },
-    ],
   },
 };
 

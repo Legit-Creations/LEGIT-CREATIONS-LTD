@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -33,6 +31,8 @@ export async function POST(request: Request) {
         { status: 500 }
       );
     }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { data, error } = await resend.emails.send({
       from: "onboarding@resend.dev",
@@ -74,7 +74,7 @@ export async function POST(request: Request) {
           <hr style="border: 0; border-top: 1px solid #ddd; margin: 28px 0;" />
 
           <p style="font-size: 12px; color: #777;">
-            Submitted through the Contra Atlantis Group contact form.
+            Submitted through the Legit Creations LTD contact form.
           </p>
 
         </div>

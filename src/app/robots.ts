@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://jponders.legitcreations.com.ng";
+import { SITE_URL } from "@/config/branding";
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = SITE_URL || "https://legitcreations.com.ng";
   return {
     rules: {
       userAgent: "*",
@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       ],
     },
 
-    sitemap: `${BASE_URL}/sitemap.xml`,
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

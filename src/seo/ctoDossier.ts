@@ -1,14 +1,7 @@
 import type { Metadata } from "next";
+import { SITE_URL, SITE_OG_IMAGE } from "@/config/branding";
 
-const SITE_URL = "https://jponders.legitcreations.com.ng";
-
-const CTO_DOSSIER_URL =
-  `${SITE_URL}/dossier/digital-integration`;
-
-// Dedicated CTO Open Graph image.
-// Recommended: 1200 × 630 PNG, JPG, or WebP.
-const CTO_OG_IMAGE =
-  "https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/opengraph.png";
+const CTO_DOSSIER_URL = `${SITE_URL}/dossier/digital-integration`;
 
 export const ctoMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -89,7 +82,7 @@ export const ctoMetadata: Metadata = {
 
   images: [
     {
-      url: CTO_OG_IMAGE,
+      url: SITE_OG_IMAGE,
       width: 1200,
       height: 630,
       type: "image/png",
@@ -110,7 +103,7 @@ export const ctoMetadata: Metadata = {
 
     images: [
       {
-        url: CTO_OG_IMAGE,
+        url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
         alt:

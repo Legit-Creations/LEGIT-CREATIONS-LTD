@@ -1,51 +1,50 @@
 {
   "identity": {
-    "name": "Julio Ponder Seneres",
-    "short_name": "JPS",
-    "site_name": "Julio Ponder",
-    "organizations": [{
-      "company": "Contra Atlantis Group"
+    "name": "Legit Creations LTD",
+    "legal_name": "Legit Creations LTD",
+    "short_name": "LGC",
+    "site_name": "Legit Creations",
+    "tagline": "Performance is the Product",
+    "founder": {
+      "name": "Marvis Justice Ayewumi",
+      "orcid": "https://orcid.org/0009-0008-6068-2804"
     },
-      {
-        "company": "Contra honduran Bank"
-      }],
-    "roles": [{
-      "Chief Administrative Officer": "Contra Atlantis Group"
+    "address": {
+      "street_address": "Bunness House 1, Edwin Clark University Drive, Near Olomu II",
+      "locality": "Kiagbodo",
+      "region": "Delta State",
+      "country": "NG"
     },
-      {
-        "Governing Member - Advisory Board": "Contra Honduran Bank"
-      }]
+    "regulatory_ids": {
+      "rc_number": "9721319",
+      "smedan_suid": "SUID-1525-5384-6931-3100",
+      "tax_id": "2621057130396"
+    }
   },
-  "description": "Chief Administrative Officer at Contra Atlantis Group. Leading Admin, HR, Procurement & Corporate Operations for Bank and Fintech infrastructure in Atlántida, Honduras.",
+  "description": "Legit Creations LTD engineers corporate infrastructure across technology, commerce, and finance. Driven by the 2026 D2D Commerce Directive, we eliminate global web latency by deploying edge-cached, headless Next.js e-commerce ecosystems. Operating on a zero-overhead model, we rebuild existing brands into high-converting digital storefronts backed by secure, zero-trust backend architectures.",
   "seo": {
-    "display_title": "Julio Ponder Seneres | CAO Contra Atlantis Group",
+    "display_title": "Legit Creations LTD | Custom Software & E-Commerce Solutions",
     "keywords": [
-      "Julio Ponder Seneres",
-      "Julio Ponder",
-      "JPS",
-      "CAO Contra Atlantis Group",
-      "Contra Atlantis Group",
-      "Banco Contra Atlantis",
-      "Banco Contra Atlantis Honduras",
-      "Chief Administrative Officer",
-      "Banking Infrastructure Honduras",
-      "Fintech Honduras",
-      "Core Banking Operations",
-      "HR Operations",
-      "Procurement",
-      "Admin Operations",
-      "Digital Banking",
-      "Bank Digital Transformation",
-      "Banking Honduras",
-      "Central America Financial Services",
-      "Corporate Operations",
-      "Atlántida Honduras"
+      "Legit Creations LTD",
+      "custom software development company Nigeria",
+      "headless e-commerce agency Lagos",
+      "Next.js development firm West Africa",
+      "custom Go API development",
+      "TypeScript enterprise architecture",
+      "zero-trust network consulting Nigeria",
+      "fintech software integration Lagos",
+      "B2B e-commerce platform build",
+      "corporate tech strategy consulting",
+      "scalable web app architecture for startups",
+      "how to build a secure fintech app in Nigeria",
+      "reducing e-commerce latency with edge caching"
     ]
   },
   "social": {
-    "og_title": "Julio Ponder Seneres",
+    "og_title": "Legit Creations LTD | Performance is the Product",
     "og_type": "website",
-    "og_image": ["https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/jps_og_banner.jpg"]
+    "og_image": ["/logo.jpg"],
+    "telegram": "https://t.me/legitcreations"
   },
   "config": {
     "theme_color": "#050505",

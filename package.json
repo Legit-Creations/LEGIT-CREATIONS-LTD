@@ -1,26 +1,24 @@
 {
-  "name": "jps-contra-atlantis-portal",
-  "description": "Professional infrastructure portal of Julio Ponder Seneres: Administrative operations, fintech governance, and core banking architecture within the Contra Atlantis Group ecosystem.",
+  "name": "legit-creations-official-site",
+  "description": "Official website for Legit Creations LTD: High-performance digital infrastructure, headless e-commerce, and enterprise technology consulting.",
   "keywords": [
-    "Julio Ponder Seneres",
-    "CAO Contra Atlantis Group",
-    "Banco Contra Atlantis",
-    "Banking Infrastructure Honduras",
-    "Fintech Core Operations",
-    "Admin Operations",
-    "HR Portal",
-    "Procurement System",
-    "Corporate Governance",
-    "Contra Atlantis Group Strategic Vision",
-    "Banking Honduras",
-    "Central America Fintech"
+    "Legit Creations LTD",
+    "custom software development company Nigeria",
+    "headless e-commerce agency Lagos",
+    "Next.js development firm West Africa",
+    "custom Go API development",
+    "TypeScript enterprise architecture",
+    "zero-trust network consulting Nigeria",
+    "fintech software integration Lagos",
+    "B2B e-commerce platform build",
+    "corporate tech strategy consulting"
   ],
-  "version": "2.0.1",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "authors": [
-    "Contra Atlantis Group",
-    "Julio Ponder Seneres"
+    "Legit Creations LTD",
+    "Marvis Justice Ayewumi"
   ],
   "scripts": {
     "dev": "next dev",
@@ -38,15 +36,11 @@
     "not op_mini all"
   ],
   "dependencies": {
-    "@formspree/react": "^3.0.0",
-    "@neondatabase/serverless": "^1.0.2",
-    "@vercel/speed-insights": "^1.3.1",
     "framer-motion": "^12.26.2",
     "lucide-react": "^0.562.0",
     "next": "16.2.9",
     "react": "19.2.7",
     "react-dom": "19.2.7",
-    "recharts": "^3.8.1",
     "resend": "^6.20.0"
   },
   "devDependencies": {

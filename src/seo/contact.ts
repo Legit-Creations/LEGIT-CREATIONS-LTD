@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
-
-const SITE_URL = "https://jponders.legitcreations.com.ng";
+import { SITE_URL, SITE_OG_IMAGE } from "@/config/branding";
 
 const CONTACT_URL = `${SITE_URL}/contact`;
-
-// Use the verified Open Graph image from Vercel Blob Storage.
-const CONTACT_OG_IMAGE =
-  "https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/opengraph.png";
 
 export const contactMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -75,7 +70,7 @@ export const contactMetadata: Metadata = {
 
     images: [
       {
-        url: CONTACT_OG_IMAGE,
+        url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
         type: "image/png",
@@ -94,10 +89,10 @@ export const contactMetadata: Metadata = {
 
     images: [
       {
-        url: CONTACT_OG_IMAGE,
+        url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Contra Atlantis Group",
+        alt: "Legit Creations LTD",
       },
     ],
   },

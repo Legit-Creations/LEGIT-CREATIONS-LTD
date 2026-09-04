@@ -1,32 +1,32 @@
 import type { MetadataRoute } from "next";
-
-const BASE_URL = "https://jponders.legitcreations.com.ng";
+import { SITE_URL } from "@/config/branding";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const baseUrl = SITE_URL || "https://legitcreations.com.ng";
   return [
     {
-      url: BASE_URL,
+      url: baseUrl,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 1,
     },
 
     {
-      url: `${BASE_URL}/dossier/strategic-growth`,
+      url: `${baseUrl}/dossier/strategic-growth`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
 
     {
-      url: `${BASE_URL}/dossier/digital-integration`,
+      url: `${baseUrl}/dossier/digital-integration`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
 
     {
-      url: `${BASE_URL}/contact`,
+      url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,

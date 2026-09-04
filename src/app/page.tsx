@@ -1,4 +1,3 @@
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import ExecutiveGallery from '@/components/ExecutiveGallery'

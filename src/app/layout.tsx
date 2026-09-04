@@ -2,6 +2,18 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
+import {
+  BRAND,
+  METADATA_TEMPLATES,
+  generateOrganizationSchema,
+  SITE_LOGO,
+  SITE_FAVICON,
+  SITE_OG_IMAGE,
+  SITE_URL,
+  SITE_KEYWORDS,
+  SITE_NAME,
+  SITE_DESCRIPTION,
+} from "@/config/branding";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,17 +27,6 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 });
 
-const SITE_URL = "https://jponders.legitcreations.com.ng";
-
-const LOGO_URL =
-  "https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/jps_logo.svg";
-
-const OG_IMAGE_URL =
-  "https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/opengraph.png";
-
-const FAVICON_URL =
-  "https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com/favicon.ico";
-
 export const viewport: Viewport = {
   themeColor: "#050505",
   width: "device-width",
@@ -37,30 +38,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
 
   title: {
-    default:
-      "Contra Atlantis Group | Banking & Fintech Infrastructure | Julio Ponder Seneres",
-    template: "%s | Contra Atlantis",
+    default: METADATA_TEMPLATES.defaultTitle,
+    template: METADATA_TEMPLATES.titleTemplate,
   },
 
-  description:
-    "Contra Atlantis Group: enterprise infrastructure for banking, payments and fintech, with administrative, operational and digital integration capabilities led by Julio Ponder Seneres.",
+  description: SITE_DESCRIPTION,
 
-  keywords: [
-    "Contra Atlantis Group",
-    "Banking Infrastructure",
-    "Fintech Infrastructure",
-    "Fintech Honduras",
-    "Core Banking",
-    "Payments",
-    "Digital Integration",
-    "Julio Ponder Seneres",
-    "Chief Administrative Officer",
-    "CAO",
-    "Strategic Growth",
-    "Administrative Operations",
-    "Atlántida",
-    "Honduras",
-  ],
+  keywords: SITE_KEYWORDS,
 
   alternates: {
     canonical: "/",
@@ -83,52 +67,37 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: SITE_URL,
-    siteName: "Contra Atlantis Group",
-
-    title:
-      "Contra Atlantis Group | Banking & Fintech Infrastructure",
-
-    description:
-      "Enterprise infrastructure for banking, payments and fintech, with administrative, operational and digital integration capabilities led by Julio Ponder Seneres.",
-
+    siteName: SITE_NAME,
+    title: METADATA_TEMPLATES.defaultTitle,
+    description: SITE_DESCRIPTION,
     images: [
       {
-        url: OG_IMAGE_URL,
+        url: SITE_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: "Contra Atlantis Group",
+        alt: SITE_NAME,
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title:
-      "Contra Atlantis Group | Banking & Fintech Infrastructure",
-
-    description:
-      "Enterprise banking, payments and digital infrastructure led by Julio Ponder Seneres.",
-
-    images: [OG_IMAGE_URL],
+    title: METADATA_TEMPLATES.defaultTitle,
+    description: SITE_DESCRIPTION,
+    images: [SITE_OG_IMAGE],
   },
 
   icons: {
     icon: [
       {
-        url: FAVICON_URL,
+        url: SITE_FAVICON,
         type: "image/x-icon",
       },
-      {
-        url: LOGO_URL,
-        type: "image/svg+xml",
-      },
     ],
-
     apple: [
       {
-        url: LOGO_URL,
-        type: "image/svg+xml",
+        url: SITE_LOGO,
+        type: "image/jpeg",
       },
     ],
   },
@@ -138,59 +107,12 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "Contra Atlantis",
+    title: SITE_NAME,
   },
 };
 
-const schema = [
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "@id": `${SITE_URL}/#organization`,
-
-    name: "Contra Atlantis Group",
-
-    url: SITE_URL,
-
-    logo: {
-      "@type": "ImageObject",
-      url: LOGO_URL,
-    },
-
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Atlántida",
-      addressCountry: "HN",
-    },
-
-    founder: {
-      "@type": "Person",
-      name: "Julio Ponder Seneres",
-    },
-  },
-
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "@id": `${SITE_URL}/#person`,
-
-    name: "Julio Ponder Seneres",
-
-    jobTitle: "Chief Administrative Officer",
-
-    worksFor: {
-      "@id": `${SITE_URL}/#organization`,
-    },
-
-    url: SITE_URL,
-
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Atlántida",
-      addressCountry: "HN",
-    },
-  },
-];
+// Generate canonical JSON-LD schema from branding config
+const schema = generateOrganizationSchema();
 
 export default function RootLayout({
   children,
@@ -202,26 +124,8 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
-      <head>
-        {/* Google Search Console verification */}
-        <meta
-          name="google-site-verification"
-          content="3-zan2mnlXQc8aKFUYw0sEkcBZjHcEXk8DvEArCczwE"
-        />
+      <head />
 
-        {/* Pinterest domain verification */}
-        <meta
-          name="p:domain_verify"
-          content="ea3a43d2bcb841c330ec3c5d9a7062a3"
-        />
-
-        {/* Vercel Blob connection */}
-        <link
-          rel="preconnect"
-          href="https://hv4w1qmfjrk8zaij.public.blob.vercel-storage.com"
-          crossOrigin="anonymous"
-        />
-      </head>
 
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
