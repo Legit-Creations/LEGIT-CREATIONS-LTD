@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   keywords: SITE_KEYWORDS,
 
   alternates: {
-    canonical: "/",
+    canonical: "./",
   },
 
   robots: {
@@ -88,18 +88,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [
-      {
-        url: SITE_FAVICON,
-        type: "image/x-icon",
-      },
-    ],
-    apple: [
-      {
-        url: SITE_LOGO,
-        type: "image/jpeg",
-      },
-    ],
+    icon: SITE_FAVICON,
+    shortcut: SITE_FAVICON,
+    apple: SITE_LOGO,
   },
 
   manifest: "/manifest.json",
@@ -124,9 +115,6 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable} scroll-smooth`}
     >
-      <head />
-
-
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
         <ClientProtector />

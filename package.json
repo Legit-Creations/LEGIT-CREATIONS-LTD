@@ -1,5 +1,6 @@
 {
   "name": "legit-creations-official-site",
+  "packageManager": "pnpm@11.24.0",
   "description": "Official website for Legit Creations LTD: High-performance digital infrastructure, headless e-commerce, and enterprise technology consulting.",
   "keywords": [
     "Legit Creations LTD",

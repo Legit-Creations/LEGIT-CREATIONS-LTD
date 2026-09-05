@@ -63,14 +63,14 @@ export interface OrganizationSchema {
 // ============================================================================
 
 export const BRAND: BrandConfig = {
-  name: "Legit Creations LTD",
-  legalName: "Legit Creations LTD",
+  name: "Legit Creations",
+  legalName: "LEGIT CREATIONS LTD",
   shortName: "LGC",
   tagline: "Performance is the Product",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://legitcreations.com.ng",
   logo: "/logo.jpg",
   favicon: "/favicon.ico",
-  ogImage: "/web-app-manifest-512x512.png",
+  ogImage: "/logo.jpg",
   email: "legitcre@legitcreations.com.ng",
 
   descriptions: {
@@ -224,6 +224,8 @@ export const SITE_URL = BRAND.domain;
 export const SITE_NAME = BRAND.name;
 export const SITE_DESCRIPTION = BRAND.descriptions.short;
 export const SITE_KEYWORDS = BRAND.keywords;
-export const SITE_LOGO = `${BRAND.domain}${BRAND.logo}`;
-export const SITE_FAVICON = `${BRAND.domain}${BRAND.favicon}`;
-export const SITE_OG_IMAGE = `${BRAND.domain}${BRAND.ogImage}`;
+
+// Export as relative paths. Next.js metadataBase handles the domain automatically.
+export const SITE_LOGO = BRAND.logo;
+export const SITE_FAVICON = BRAND.favicon;
+export const SITE_OG_IMAGE = BRAND.ogImage;

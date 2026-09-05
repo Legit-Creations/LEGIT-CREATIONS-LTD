@@ -11,7 +11,7 @@
 /.git/
 # testing
 /coverage
-
+/.vscode/
 # next.js
 /.next/
 /out/
@@ -36,6 +36,7 @@ yarn-error.log*
 # vercel
 .vercel
 .next
+.vscode
 # typescript
 *.tsbuildinfo
 next-env.d.ts

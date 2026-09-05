@@ -1,7 +1,7 @@
 {
   "identity": {
-    "name": "Legit Creations LTD",
-    "legal_name": "Legit Creations LTD",
+    "name": "Legit Creations",
+    "legal_name": "LEGIT CREATIONS LTD",
     "short_name": "LGC",
     "site_name": "Legit Creations",
     "tagline": "Performance is the Product",
@@ -23,7 +23,7 @@
   },
   "description": "Legit Creations LTD engineers corporate infrastructure across technology, commerce, and finance. Driven by the 2026 D2D Commerce Directive, we eliminate global web latency by deploying edge-cached, headless Next.js e-commerce ecosystems. Operating on a zero-overhead model, we rebuild existing brands into high-converting digital storefronts backed by secure, zero-trust backend architectures.",
   "seo": {
-    "display_title": "Legit Creations LTD | Custom Software & E-Commerce Solutions",
+    "display_title": "LEGIT CREATIONS LTD | Custom Software & E-Commerce Solutions",
     "keywords": [
       "Legit Creations LTD",
       "custom software development company Nigeria",
@@ -41,9 +41,9 @@
     ]
   },
   "social": {
-    "og_title": "Legit Creations LTD | Performance is the Product",
+    "og_title": "LEGIT CREATIONS LTD",
     "og_type": "website",
-    "og_image": ["/logo.jpg"],
+    "og_image": "/logo.jpg",
     "telegram": "https://t.me/legitcreations"
   },
   "config": {
