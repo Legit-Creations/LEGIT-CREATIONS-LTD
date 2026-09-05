@@ -1,57 +1,93 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 @theme {
-  /* High-Contrast Executive Palette */
-  --font-display: var(--font-playfair), serif;
-  --font-body: var(--font-inter), sans-serif;
+  /* Ocean Clay Palette & Typography Mapping */
+  --font-display: 'Ubuntu', sans-serif;
+  --font-body: 'Google Sans', sans-serif;
 
-  --color-obsidian: #050505;
-  --color-bone: #FDFBF7;
-  --color-gold: #946C00;
-  --color-gold-light: #C5A059;
-  --color-gold-dark: #856404;
-  --color-ash: #575757;
+  --color-obsidian: #22333B;     /* 1. Deep Ocean (Dark Base / Background) */
+  --color-bone: #EFF3F1;         /* 2. Pale Ice (Light Surface / Text) */
+  --color-teal: #5E8B7E;         /* 3. Ocean Teal (Graphics / Accents / Borders) */
+  --color-gold: #C7A17A;         /* 4. Clay / Warm Gold (CTAs / Highlights) */
 
   --font-size-huge: clamp(3rem, 10vw, 8rem);
 }
 
+/* Typography Weight Helper Classes (Moved outside @theme) */
+.google-sans-text {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.ubuntu-light {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ubuntu-regular {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ubuntu-medium {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ubuntu-bold {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.ubuntu-light-italic {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.ubuntu-regular-italic {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.ubuntu-medium-italic {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.ubuntu-bold-italic {
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
 @layer base {
   body {
-    background-color: var(--color-bone);
-    color: var(--color-obsidian);
+    background-color: var(--color-obsidian);
+    color: var(--color-bone);
     -webkit-font-smoothing: antialiased;
     font-family: var(--font-body);
   }
 
-  /*
-   * Asset Protection
-   *
-   * Deterrence only. Does not interfere with normal
-   * text selection, accessibility, or page interaction.
-   */
+  /* Asset Protection */
   .asset-protected {
     user-select: none;
     -webkit-user-select: none;
     -webkit-user-drag: none;
   }
 
-  /*
-   * Prevent native image/video dragging.
-   * Applied globally because dragging media away from
-   * the page provides little legitimate UX value.
-   */
   img,
   video {
     -webkit-user-drag: none;
   }
-
-  /*
-   * Important protected assets.
-   *
-   * pointer-events is intentionally NOT disabled here.
-   * This prevents protection CSS from breaking clickable
-   * images, galleries, links, and interactive components.
-   */
 
   h1,
   h2,
@@ -72,14 +108,13 @@
   }
 }
 
-/* Scrollbar optimized for minimalist visual system */
-
+/* Minimalist Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-bone);
+  background: var(--color-obsidian);
 }
 
 ::-webkit-scrollbar-thumb {
