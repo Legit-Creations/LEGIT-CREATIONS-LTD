@@ -68,9 +68,9 @@ export const BRAND: BrandConfig = {
   shortName: "LGC",
   tagline: "Performance is the Product",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://legitcreations.com.ng",
-  logo: "/logo.jpg",
+  logo: "/logo.jpeg",
   favicon: "/favicon.ico",
-  ogImage: "/logo.jpg",
+  ogImage: "/logo.jpeg",
   email: "legitcre@legitcreations.com.ng",
 
   descriptions: {
