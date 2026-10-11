@@ -75,43 +75,41 @@ export const BRAND: BrandConfig = {
 
   descriptions: {
     short:
-      "Legit Creations LTD is a multidisciplinary technology, commerce, and finance firm engineering high-performance digital infrastructure and scalable business strategies.",
-    long: "Legit Creations LTD engineers corporate infrastructure across technology, commerce, and finance. Driven by the 2026 D2D Commerce Directive, we eliminate global web latency by deploying edge-cached, headless Next.js e-commerce ecosystems. Operating on a zero-overhead model, we rebuild existing brands into high-converting digital storefronts backed by secure, zero-trust backend architectures.",
+      "Legit Creations LTD builds custom software, high-performance web platforms, and headless e-commerce solutions for businesses in Nigeria and West Africa.",
+    long:
+      "Legit Creations LTD helps businesses build digital infrastructure that performs. We design and develop custom software, scalable web platforms, and headless e-commerce systems that improve operational efficiency, customer experience, and business growth.",
   },
 
   services: [
-    "Custom Go/Next.js Software Engineering",
-    "Zero-Trust Network Architecture",
-    "Digital Identity Design",
-    "Headless E-Commerce Deployment",
-    "Latency Reduction & Performance Optimization",
-    "High-Conversion Storefront Optimization",
-    "B2B Digital Transformation",
-    "Corporate Structuring",
-    "Sweat-Equity Capital Modeling",
-    "Automated Payment Gateway Integration",
+    "Custom Software Development",
+    "Business Website Development",
+    "Headless E-Commerce Solutions",
+    "API Development",
+    "Web App Architecture",
+    "Digital Transformation Strategy",
+    "Performance Optimization",
+    "Business Automation",
+    "E-Commerce Platform Development",
+    "Corporate Digital Infrastructure",
   ],
- 
+
   keywords: [
-    // Primary Keywords
-    "custom software development company Nigeria",
+    "custom software development Nigeria",
+    "software company Nigeria",
     "headless e-commerce agency Lagos",
+    "headless e-commerce development Nigeria",
+    "custom web development company Nigeria",
     "Next.js development firm West Africa",
-    // Service Keywords - Technology
     "custom Go API development",
     "TypeScript enterprise architecture",
-    "zero-trust network consulting Nigeria",
-    // Service Keywords - Commerce/Finance
-    "fintech software integration Lagos",
     "B2B e-commerce platform build",
-    "corporate tech strategy consulting",
-    // Long-tail Keywords
+    "digital transformation company Nigeria",
+    "business web app development Nigeria",
     "scalable web app architecture for startups",
-    "how to build a secure fintech app in Nigeria",
-    "reducing e-commerce latency with edge caching",
-    // Brand Keywords
-    "Legit Creations",
+    "custom software company Delta State",
+    "ecommerce platform development Nigeria",
     "Legit Creations LTD",
+    "Legit Creations",
     "LGC",
     "Marvis Justice Ayewumi",
     "Performance is the Product",
