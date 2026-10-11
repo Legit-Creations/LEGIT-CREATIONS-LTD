@@ -12,6 +12,7 @@ import {
   SITE_URL,
   SITE_KEYWORDS,
   SITE_NAME,
+  SITE_DESCRIPTION_LONG,
   SITE_DESCRIPTION,
 } from "@/config/branding";
 
@@ -69,7 +70,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: SITE_NAME,
     title: METADATA_TEMPLATES.defaultTitle,
-    description: SITE_DESCRIPTION,
+    description: SITE_DESCRIPTION_LONG,
     images: [
       {
         url: SITE_OG_IMAGE,

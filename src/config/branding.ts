@@ -221,6 +221,7 @@ export const METADATA_TEMPLATES = {
 export const SITE_URL = BRAND.domain;
 export const SITE_NAME = BRAND.name;
 export const SITE_DESCRIPTION = BRAND.descriptions.short;
+export const SITE_DESCRIPTION_LONG = BRAND.descriptions.long;
 export const SITE_KEYWORDS = BRAND.keywords;
 
 // Export as relative paths. Next.js metadataBase handles the domain automatically.
