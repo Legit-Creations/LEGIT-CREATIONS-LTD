@@ -21,23 +21,25 @@
       "tax_id": "2621057130396"
     }
   },
-  "description": "Legit Creations LTD engineers corporate infrastructure across technology, commerce, and finance. Driven by the 2026 D2D Commerce Directive, we eliminate global web latency by deploying edge-cached, headless Next.js e-commerce ecosystems. Operating on a zero-overhead model, we rebuild existing brands into high-converting digital storefronts backed by secure, zero-trust backend architectures.",
+  "description": "Legit Creations LTD is a Nigerian technology and digital commerce company helping businesses build high-performance web platforms, custom software, and headless e-commerce experiences that improve operational efficiency and customer conversion.",
   "seo": {
-    "display_title": "LEGIT CREATIONS LTD | Custom Software & E-Commerce Solutions",
+    "display_title": "Legit Creations LTD | Custom Software & Headless E-Commerce Development in Nigeria",
     "keywords": [
       "Legit Creations LTD",
-      "custom software development company Nigeria",
+      "custom software development Nigeria",
+      "software company Nigeria",
       "headless e-commerce agency Lagos",
+      "headless e-commerce development Nigeria",
+      "custom web development company Nigeria",
       "Next.js development firm West Africa",
       "custom Go API development",
       "TypeScript enterprise architecture",
-      "zero-trust network consulting Nigeria",
-      "fintech software integration Lagos",
       "B2B e-commerce platform build",
-      "corporate tech strategy consulting",
+      "digital transformation company Nigeria",
+      "business web app development Nigeria",
       "scalable web app architecture for startups",
-      "how to build a secure fintech app in Nigeria",
-      "reducing e-commerce latency with edge caching"
+      "custom software company Delta State",
+      "ecommerce platform development Nigeria"
     ]
   },
   "social": {
@@ -48,6 +50,6 @@
   },
   "config": {
     "theme_color": "#050505",
-    "last_updated": "2026-08-15"
+    "last_updated": "2026-10-11"
   }
 }
