@@ -33,7 +33,7 @@ export default function Header() {
       <div className="lgc-header__inner">
         <Link href="/" className="lgc-header__brand" aria-label={`${BRAND.name} home`} onClick={closeMenu}>
           <Image
-            src={BRAND.logo}
+            src={BRAND.svg}
             alt=""
             width={58}
             height={58}

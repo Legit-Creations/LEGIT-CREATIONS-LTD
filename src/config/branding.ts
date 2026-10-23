@@ -37,6 +37,7 @@ export interface BrandConfig {
   tagline: string;
   domain: string;
   logo: string;
+  svg:string;
   favicon: string;
   ogImage: string;
   email: string;
@@ -69,6 +70,7 @@ export const BRAND: BrandConfig = {
   tagline: "Performance is the Product",
   domain: process.env.NEXT_PUBLIC_SITE_URL || "https://legitcreations.com.ng",
   logo: "/logo.jpeg",
+  svg: "/logo.svg",
   favicon: "/favicon.ico",
   ogImage: "/logo.jpeg",
   email: "legitcre@legitcreations.com.ng",
@@ -163,6 +165,7 @@ export function generateOrganizationSchema(): OrganizationSchema {
         description: BRAND.descriptions.long,
         url: BRAND.domain,
         logo: `${BRAND.domain}${BRAND.logo}`,
+        svg: `${BRAND.domain}${BRAND.svg}`,
         email: BRAND.email,
         taxID: BRAND.taxId,
         address: {
@@ -228,3 +231,4 @@ export const SITE_KEYWORDS = BRAND.keywords;
 export const SITE_LOGO = BRAND.logo;
 export const SITE_FAVICON = BRAND.favicon;
 export const SITE_OG_IMAGE = BRAND.ogImage;
+export const SITE_SVG = BRAND.svg

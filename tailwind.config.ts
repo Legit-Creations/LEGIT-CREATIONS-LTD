@@ -27,9 +27,6 @@ const config: Config = {
         body: ["Google Sans", "sans-serif"],
         display: ["Ubuntu", "sans-serif"],
       },
-      backgroundImage: {
-        'grid-pattern': "url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUAgMAAADNEp7UAAAADFBMVEUAAAD///////8clp9WAAAAAnRSTlMAAHaTzTgAAAAXSURBVAjXY2hgYGBgYGCYwcDAwMCgAQA87AKB4M0mOQAAAABJRU5ErkJggg==')",
-      },
     },
   },
   plugins: [],
