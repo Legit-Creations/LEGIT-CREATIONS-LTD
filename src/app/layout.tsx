@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
-import Header from "@/components/Header";
 import {
   BRAND,
   METADATA_TEMPLATES,
@@ -118,9 +117,6 @@ export default function RootLayout({
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
         <ClientProtector />
-
-        {/* Global site header */}
-        <Header />
 
         {/* Application */}
         {children}
