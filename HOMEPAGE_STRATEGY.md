@@ -23,8 +23,6 @@
 **Copy Focus:**
 - Clear, direct value proposition
 - No jargon—speak to business outcomes
-- Authority signal (regulations, founder credentials optional)
-
 ---
 
 ### **2. Services Section**

@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/branding";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = SITE_URL || "https://legitcreations.com.ng";
+  const baseUrl = SITE_URL || "https://legitcreations.com.ng/";
   return [
     {
       url: baseUrl,
