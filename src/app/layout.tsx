@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Inter, Ubuntu } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
 import {
@@ -22,10 +22,11 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-const playfair = Playfair_Display({
+const ubuntu = Ubuntu({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-playfair",
+  variable: "--font-ubuntu",
+  weight: ["300", "400", "500", "700"],
 });
 
 export const viewport: Viewport = {
@@ -112,7 +113,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} scroll-smooth`}
+      className={`${inter.variable} ${ubuntu.variable} scroll-smooth`}
     >
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
