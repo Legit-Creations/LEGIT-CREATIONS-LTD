@@ -75,20 +75,20 @@ const styles = {
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
-
+  
   useEffect(() => {
     if (!menuOpen) return;
-
+    
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setMenuOpen(false);
     };
-
+    
     document.addEventListener("keydown", closeOnEscape);
     return () => document.removeEventListener("keydown", closeOnEscape);
   }, [menuOpen]);
-
+  
   const closeMenu = () => setMenuOpen(false);
-
+  
   return (
     <header className={styles.header}>
       <div className={styles.container}>
