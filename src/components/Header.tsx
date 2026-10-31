@@ -1,236 +1,213 @@
-"use client"; // remove this line if you're not using the Next.js App Router
+'use client';
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState } from 'react';
 
-/* ------------------------------------------------------------------ */
-/* Nav data: edit labels/hrefs here. Icons are inline SVG (no deps).   */
-/* ------------------------------------------------------------------ */
-
-type NavItem = { id: string; label: string; href: string; icon: ReactNode };
-
-const iconProps = {
-  width: 18,
-  height: 18,
-  viewBox: "0 0 24 24",
-  fill: "none",
-  stroke: "currentColor",
-  strokeWidth: 1.6,
-  strokeLinecap: "round" as const,
-  strokeLinejoin: "round" as const,
-  "aria-hidden": true,
-};
-
-// Hand offering a heart: "service"
-const ServiceIcon = (
-  <svg {...iconProps}>
-    <path d="M12 9.5c-1.6-2.2-4.6-.6-3.4 1.6.7 1.2 3.4 3 3.4 3s2.7-1.8 3.4-3c1.2-2.2-1.8-3.8-3.4-1.6Z" />
-    <path d="M2.5 14.5h2.8l3.2 1.6h4.2c.9 0 1.4 1.1.6 1.7l-.7.5" />
-    <path d="M5.3 14.5v6M8.5 18.5l6.8 1.7 6.2-3.2c.8-.5.5-1.7-.5-1.7h-3.9" />
-  </svg>
-);
-
-// Person with a badge: "resources & insights"
-const InsightsIcon = (
-  <svg {...iconProps}>
-    <circle cx="12" cy="7.5" r="3.2" />
-    <path d="M5.5 20.5v-1.2c0-3 2.9-5.3 6.5-5.3s6.5 2.3 6.5 5.3v1.2" />
-    <path d="M9.5 16.5l2.5 2.2 2.5-2.2" />
-  </svg>
-);
-
-const GenericIcon = (
-  <svg {...iconProps}>
-    <circle cx="12" cy="12" r="8.5" />
-    <path d="M12 8v4l2.5 2" />
-  </svg>
-);
-
-const NAV_ITEMS: NavItem[] = [
-  { id: "service", label: "Service", href: "#service", icon: ServiceIcon },
-  { id: "insights", label: "Resources & Insights", href: "#insights", icon: InsightsIcon },
-  // Placeholders: these sit off-screen so the arrow button has something to reveal
-  { id: "projects", label: "Projects", href: "#projects", icon: GenericIcon },
-  { id: "about", label: "About us", href: "#about", icon: GenericIcon },
+const navItems = [
+  {
+    label: 'Service',
+    href: '#service',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 9.5c-1.6-2.2-4.6-.6-3.4 1.6.7 1.2 3.4 3 3.4 3s2.7-1.8 3.4-3c1.2-2.2-1.8-3.8-3.4-1.6Z" />
+        <path d="M2.5 14.5h2.8l3.2 1.6h4.2c.9 0 1.4 1.1.6 1.7l-.7.5" />
+        <path d="M5.3 14.5v6M8.5 18.5l6.8 1.7 6.2-3.2c.8-.5.5-1.7-.5-1.7h-3.9" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Resources & Insights',
+    href: '#insights',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="7.5" r="3.2" />
+        <path d="M5.5 20.5v-1.2c0-3 2.9-5.3 6.5-5.3s6.5 2.3 6.5 5.3v1.2" />
+        <path d="M9.5 16.5l2.5 2.2 2.5-2.2" />
+      </svg>
+    ),
+  },
+  {
+    label: 'Projects',
+    href: '#projects',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 8v4l2.5 2" />
+      </svg>
+    ),
+  },
+  {
+    label: 'About us',
+    href: '#about',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="8.5" />
+        <path d="M12 8v4l2.5 2" />
+      </svg>
+    ),
+  },
 ];
 
-/* ------------------------------------------------------------------ */
-/* Component                                                           */
-/* ------------------------------------------------------------------ */
+function SearchIcon() {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="M15.5 15.5L21 21" />
+    </svg>
+  );
+}
+
+function ScrollIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M3 12h17M14 6l6 6-6 6" />
+    </svg>
+  );
+}
 
 export default function Header() {
-  const [active, setActive] = useState<string>("service");
-  const [searchOpen, setSearchOpen] = useState(false);
-  const [atEnd, setAtEnd] = useState(false);
+  const [activeLink, setActiveLink] = useState('#service');
+  const [navAtEnd, setNavAtEnd] = useState(false);
 
-  const scrollerRef = useRef<HTMLUListElement>(null);
-  const searchInputRef = useRef<HTMLInputElement>(null);
-  const searchBtnRef = useRef<HTMLButtonElement>(null);
+  const navListRef = useRef<HTMLUListElement>(null);
 
-  // Track whether the nav is scrolled to its end, so the arrow can flip direction
+  function isAtEnd() {
+    const navList = navListRef.current;
+    if (!navList) return false;
+
+    return navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 4;
+  }
+
+  function updateNavScrollState() {
+    setNavAtEnd(isAtEnd());
+  }
+
+  function scrollNavigation() {
+    const navList = navListRef.current;
+    if (!navList) return;
+
+    const reduceMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+
+    navList.scrollTo({
+      left: isAtEnd()
+        ? 0
+        : navList.scrollLeft + navList.clientWidth * 0.7,
+      behavior: reduceMotion ? 'auto' : 'smooth',
+    });
+  }
+
   useEffect(() => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const update = () =>
-      setAtEnd(el.scrollLeft + el.clientWidth >= el.scrollWidth - 4);
-    update();
-    el.addEventListener("scroll", update, { passive: true });
-    window.addEventListener("resize", update);
+    const navList = navListRef.current;
+    if (!navList) return;
+
+    updateNavScrollState();
+
+    navList.addEventListener('scroll', updateNavScrollState, {
+      passive: true,
+    });
+
+    window.addEventListener('resize', updateNavScrollState);
+
     return () => {
-      el.removeEventListener("scroll", update);
-      window.removeEventListener("resize", update);
+      navList.removeEventListener('scroll', updateNavScrollState);
+      window.removeEventListener('resize', updateNavScrollState);
     };
   }, []);
 
-  // Focus the search field when it opens; Esc closes it and returns focus
-  useEffect(() => {
-    if (searchOpen) searchInputRef.current?.focus();
-  }, [searchOpen]);
-
-  useEffect(() => {
-    if (!searchOpen) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
-        setSearchOpen(false);
-        searchBtnRef.current?.focus();
-      }
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [searchOpen]);
-
-  const scrollNav = () => {
-    const el = scrollerRef.current;
-    if (!el) return;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    el.scrollTo({
-      left: atEnd ? 0 : el.scrollLeft + el.clientWidth * 0.7,
-      behavior: reduce ? "auto" : "smooth",
-    });
-  };
-
-  const focusRing =
-    "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f08a24] focus-visible:ring-offset-2 focus-visible:ring-offset-[#2b0f09]";
-
   return (
-    <header
-      className="sticky top-0 z-50 w-full bg-gradient-to-b from-[#e4e4e4] to-white shadow-[0_6px_16px_-6px_rgba(0,0,0,0.25)]"
-      style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
-    >
-      {/* ---------- Row 1: logo, CTA, search ---------- */}
-      <div className="mx-auto flex max-w-screen-xl items-center justify-between gap-3 px-2 py-3">
+    <header className="sticky top-0 z-50 w-full bg-[#E9E9E9] pt-[env(safe-area-inset-top)]">
+      {/* Main header */}
+      <div className="flex h-[75px] w-full items-center justify-between px-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] md:px-[3%]">
         <a
           href="/"
           aria-label="Legit Creations Ltd, home"
-          className="flex flex-col items-end leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1f6b] focus-visible:ring-offset-2"
+          className="flex flex-col items-end font-[var(--font-arimo)] leading-[15px] text-[#2A1006] no-underline"
         >
-          <span className="text-[20px] font-extrabold tracking-tight text-[#3a1409]">
+          <span className="text-[18px] font-extrabold tracking-[-0.3px]">
             LEGIT CREATIONS
           </span>
-          {/* Darker than the original gray so it passes WCAG AA on the gradient */}
-          <span className="mt-0.5 text-[13px] font-medium text-[#5c5c5c]">ltd</span>
+          <span className="text-[14px] font-normal tracking-[0.5px]">
+            Ltd.
+          </span>
         </a>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-[6px]">
           <a
             href="#contact"
-            className="rounded-lg bg-[#1f1f6b] px-4 py-2.5 text-[13px] font-bold text-white transition-colors hover:bg-[#2a2a8a] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1f6b] focus-visible:ring-offset-2"
+            className="grid h-[37px] place-items-center bg-[#1F1F6B] px-3 font-[var(--font-lato)] text-[13px] font-medium whitespace-nowrap text-white no-underline transition-colors hover:bg-[#2A2A8A]"
           >
             Send Enquiry
           </a>
 
-          <button
-            ref={searchBtnRef}
-            type="button"
-            aria-label={searchOpen ? "Close search" : "Open search"}
-            aria-expanded={searchOpen}
-            aria-controls="site-search"
-            onClick={() => setSearchOpen((v) => !v)}
-            className="grid h-11 w-11 place-items-center rounded-full text-black transition-colors hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1f6b]"
+          <span
+            aria-hidden="true"
+            className="grid size-11 place-items-center text-black"
           >
-            {searchOpen ? (
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
-                <path d="M6 6l12 12M18 6L6 18" />
-              </svg>
-            ) : (
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden>
-                <circle cx="10.5" cy="10.5" r="6.5" />
-                <path d="M15.5 15.5L21 21" />
-              </svg>
-            )}
-          </button>
+            <span className="size-[31px]">
+              <SearchIcon />
+            </span>
+          </span>
         </div>
       </div>
 
-      {/* ---------- Search panel (opens under row 1) ---------- */}
-      <div
-        id="site-search"
-        hidden={!searchOpen}
-        className="mx-2 mb-3"
-      >
-        <form role="search" action="/search" method="get" className="flex gap-2">
-          <label htmlFor="site-search-input" className="sr-only">
-            Search the site
-          </label>
-          <input
-            ref={searchInputRef}
-            id="site-search-input"
-            name="q"
-            type="search"
-            placeholder="Search services and insights"
-            className="h-11 min-w-0 flex-1 rounded-lg border border-[#b8a5a0] bg-white px-3 text-[15px] text-[#3a1409] placeholder:text-[#6b6b6b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1f1f6b]"
-          />
-          <button
-            type="submit"
-            className="h-11 rounded-lg bg-[#2b0f09] px-4 text-[14px] font-bold text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f08a24] focus-visible:ring-offset-2"
-          >
-            Search
-          </button>
-        </form>
-      </div>
+      <hr className="mt-[5px] h-0 border-0 border-t border-[#545454]" />
 
-      {/* ---------- Row 2: scrollable nav strip ---------- */}
-      <nav aria-label="Primary" className="px-[5px] pb-2">
-        <div className="flex items-center gap-2 rounded-md bg-[#2b0f09] px-2 py-1.5 ring-2 ring-[#b8a5a0]/70">
-          <ul
-            ref={scrollerRef}
-            className="flex min-w-0 flex-1 items-center gap-2 overflow-x-auto scroll-smooth [scrollbar-width:none] [&::-webkit-scrollbar]:hidden [mask-image:linear-gradient(to_right,black_88%,transparent)]"
-          >
-            {NAV_ITEMS.map((item) => {
-              const isActive = item.id === active;
-              return (
-                <li key={item.id} className="shrink-0">
+      {/* Primary navigation */}
+      <nav aria-label="Primary">
+        <div className="relative flex h-[33px] w-full justify-center bg-[#471F0E69]">
+          <div className="absolute top-[-13px] flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5">
+            <ul
+              ref={navListRef}
+              className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto [mask-image:linear-gradient(to_right,black_88%,transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            >
+              {navItems.map((item) => (
+                <li key={item.href} className="shrink-0">
                   <a
                     href={item.href}
-                    aria-current={isActive ? "page" : undefined}
-                    onClick={() => setActive(item.id)}
-                    className={[
-                      "flex items-center gap-1.5 rounded px-2.5 py-1.5 text-[14px] font-bold whitespace-nowrap transition-colors",
-                      focusRing,
-                      isActive
-                        ? "bg-[#f08a24] italic text-[#14144f]" // darker navy for stronger contrast on orange
-                        : "text-white hover:bg-white/10",
-                    ].join(" ")}
+                    onClick={() => setActiveLink(item.href)}
+                    aria-current={
+                      activeLink === item.href ? 'page' : undefined
+                    }
+                    className={`flex h-[23px] items-center gap-[6px] rounded px-[6px] font-[var(--font-arimo)] text-[14px] font-bold whitespace-nowrap text-white no-underline transition-colors hover:bg-white/10 ${
+                      activeLink === item.href
+                        ? 'bg-[#D98A41] text-[#14144F]'
+                        : ''
+                    }`}
                   >
-                    {item.icon}
+                    <span className="size-[17px] shrink-0">
+                      {item.icon}
+                    </span>
                     {item.label}
                   </a>
                 </li>
-              );
-            })}
-          </ul>
+              ))}
+            </ul>
 
-          <button
-            type="button"
-            onClick={scrollNav}
-            aria-label={atEnd ? "Scroll menu back to start" : "Scroll menu for more links"}
-            className={`grid h-8 w-8 shrink-0 place-items-center rounded-full border border-black bg-white text-black transition-transform hover:bg-[#f3f3f3] ${focusRing} ${
-              atEnd ? "rotate-180" : ""
-            }`}
-          >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-              <path d="M3 12h17M14 6l6 6-6 6" />
-            </svg>
-          </button>
+            <button
+              type="button"
+              onClick={scrollNavigation}
+              aria-label={
+                navAtEnd
+                  ? 'Scroll menu back to start'
+                  : 'Scroll menu for more links'
+              }
+              className={`grid size-8 shrink-0 place-items-center rounded-full border-2 border-[#B5B5B5] bg-white text-black transition-transform focus-visible:outline-2 focus-visible:outline-[#D98A41] ${
+                navAtEnd ? 'rotate-180' : ''
+              }`}
+            >
+              <span className="size-5">
+                <ScrollIcon />
+              </span>
+            </button>
+          </div>
         </div>
       </nav>
     </header>

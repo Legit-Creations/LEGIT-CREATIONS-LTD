@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Legit Creations Ltd</title>
+
+  <style>
+    :root {
+      --header-bg: #E9E9E9;
+      --brown: #290F05;
+      --brown-strip: #471F0E69;
+      --navy: #1F1F6B;
+      --orange: #D98A41;
+      --brand: #2A1006;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 100%;
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #fff;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      padding-top: env(safe-area-inset-top, 0px);
+      background: var(--header-bg);
+    }
+
+    /* soft shadow under header */
+    header::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      background: linear-gradient(rgba(0,0,0,0.05), rgba(0,0,0,0));
+      pointer-events: none;
+    }
+
+
+.rect1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 75px;
+  padding: 0 16px 0; /* Added right padding for balance */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4); /* Lighter, even shadow */
+}
+
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: var(--brand);
+      text-decoration: none;
+      line-height: 15px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-suffix {
+      color: var(--brand);
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .enquiry-button {
+      display: grid;
+      place-items: center;
+      height: 37px;
+      padding: 0 12px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .enquiry-button:hover { background: #2A2A8A; }
+
+    .search-toggle {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: transparent;
+      color: #000;
+      cursor: pointer;
+    }
+
+    .search-toggle:hover { background: rgba(0, 0, 0, 0.05); }
+
+    .search-toggle svg {
+      width: 31px;
+      height: 31px;
+      stroke-width: 2;
+    }
+
+    header hr {
+      height: 0;
+      border: 0;
+      border-top: 1px solid #545454;
+      margin-top:5px;
+    }
+
+    /* Search panel */
+    .search-panel {
+      padding: 12px 8px;
+      background: var(--header-bg);
+    }
+
+    .search-panel[hidden] { display: none; }
+
+    .search-form { display: flex; gap: 8px; }
+
+    .search-input {
+      flex: 1;
+      min-width: 0;
+      height: 44px;
+      padding: 0 12px;
+      border: 1px solid #B8A5A0;
+      border-radius: 7px;
+      font-size: 16px;
+    }
+
+    .search-submit {
+      padding: 0 16px;
+      border: 0;
+      border-radius: 7px;
+      background: var(--brown);
+      color: #fff;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* Rectangle 2: strip */
+    .rect2 {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 33px;
+      background: var(--brown-strip);
+    }
+
+    /* Overlapping nav box */
+
+.rect2_1 {
+  position: absolute;
+  top: -13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 97%;
+  height: 40px;
+  padding: 0 20px;
+  /* Balanced left/right, 0 top/bottom */
+  background: var(--brown);
+}
+    .nav-list {
+      display: flex;
+      flex: 1;
+      min-width: 0;
+      align-items: center;
+      gap: 16px;
+      overflow-x: auto;
+      list-style: none;
+      scrollbar-width: none;
+      mask-image: linear-gradient(to right, black 88%, transparent);
+    }
+
+    .nav-list::-webkit-scrollbar { display: none; }
+
+    .nav-list li { flex-shrink: 0; }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 23px;
+      padding: 0 6px;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .nav-link:hover { background: rgba(255, 255, 255, 0.1); }
+
+    .nav-link.active {
+      background: var(--orange);
+      color: #14144F;
+    }
+
+    .nav-link svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .nav-scroll-button {
+      display: grid;
+      flex-shrink: 0;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 2px solid #B5B5B5;
+      border-radius: 50%;
+      background: #fff;
+      color: #000;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .nav-scroll-button svg { width: 20px; height: 20px; }
+
+    .nav-scroll-button.at-end { transform: rotate(180deg); }
+
+    :focus-visible {
+      outline: 2px solid var(--orange);
+      outline-offset: 2px;
+    }
+
+    @media (min-width: 768px) {
+      .rect1 { padding: 0 3%; }
+      .search-panel { padding: 12px 3%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="rect1">
+    <a href="/" class="brand" aria-label="Legit Creations Ltd, home">
+      <span class="brand-name">LEGIT CREATIONS</span>
+      <span class="brand-suffix">Ltd.</span>
+    </a>
+
+    <div class="header-actions">
+      <a href="#contact" class="enquiry-button">Send Enquiry</a>
+
+      <button type="button" class="search-toggle" id="search-toggle"
+              aria-label="Open search" aria-expanded="false" aria-controls="site-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-linecap="round" aria-hidden="true">
+          <circle cx="10.5" cy="10.5" r="6.5"></circle>
+          <path d="M15.5 15.5L21 21"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="search-panel" id="site-search" hidden>
+    <form role="search" action="/search" method="get" class="search-form">
+      <label for="site-search-input" hidden>Search the site</label>
+      <input class="search-input" id="site-search-input" name="q" type="search"
+             placeholder="Search services and insights">
+      <button type="submit" class="search-submit">Search</button>
+    </form>
+  </div>
+
+  <nav aria-label="Primary">
+    <div class="rect2">
+      <div class="rect2_1">
+        <ul class="nav-list" id="nav-list">
+          <li>
+            <a href="#service" class="nav-link active" aria-current="page">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 9.5c-1.6-2.2-4.6-.6-3.4 1.6.7 1.2 3.4 3 3.4 3s2.7-1.8 3.4-3c1.2-2.2-1.8-3.8-3.4-1.6Z"/>
+                <path d="M2.5 14.5h2.8l3.2 1.6h4.2c.9 0 1.4 1.1.6 1.7l-.7.5"/>
+                <path d="M5.3 14.5v6M8.5 18.5l6.8 1.7 6.2-3.2c.8-.5.5-1.7-.5-1.7h-3.9"/>
+              </svg>
+              Service
+            </a>
+          </li>
+
+          <li>
+            <a href="#insights" class="nav-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="7.5" r="3.2"/>
+                <path d="M5.5 20.5v-1.2c0-3 2.9-5.3 6.5-5.3s6.5 2.3 6.5 5.3v1.2"/>
+                <path d="M9.5 16.5l2.5 2.2 2.5-2.2"/>
+              </svg>
+              Resources &amp; Insights
+            </a>
+          </li>
+
+          <li>
+            <a href="#projects" class="nav-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5"/>
+                <path d="M12 8v4l2.5 2"/>
+              </svg>
+              Projects
+            </a>
+          </li>
+
+          <li>
+            <a href="#about" class="nav-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                   stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.5"/>
+                <path d="M12 8v4l2.5 2"/>
+              </svg>
+              About us
+            </a>
+          </li>
+        </ul>
+
+        <button type="button" class="nav-scroll-button" id="nav-scroll-button"
+                aria-label="Scroll menu for more links">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+               stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 12h17M14 6l6 6-6 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const searchToggle = document.getElementById("search-toggle");
+  const searchPanel = document.getElementById("site-search");
+  const searchInput = document.getElementById("site-search-input");
+  const navList = document.getElementById("nav-list");
+  const navScrollButton = document.getElementById("nav-scroll-button");
+
+  const searchIcon = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+      <circle cx="10.5" cy="10.5" r="6.5"></circle>
+      <path d="M15.5 15.5L21 21"></path>
+    </svg>`;
+
+  const closeIcon = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" aria-hidden="true">
+      <path d="M6 6l12 12M18 6L6 18"></path>
+    </svg>`;
+
+  function toggleSearch(force) {
+    const open = typeof force === "boolean" ? force : searchPanel.hidden;
+    searchPanel.hidden = !open;
+    searchToggle.setAttribute("aria-expanded", String(open));
+    searchToggle.setAttribute("aria-label", open ? "Close search" : "Open search");
+    searchToggle.innerHTML = open ? closeIcon : searchIcon;
+    open ? searchInput.focus() : searchToggle.focus();
+  }
+
+  searchToggle.addEventListener("click", () => toggleSearch());
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !searchPanel.hidden) toggleSearch(false);
+  });
+
+  navList.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navList.querySelectorAll(".nav-link").forEach((item) => {
+        item.classList.remove("active");
+        item.removeAttribute("aria-current");
+      });
+      link.classList.add("active");
+      link.setAttribute("aria-current", "page");
+    });
+  });
+
+  function isAtEnd() {
+    return navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 4;
+  }
+
+  function updateNavScrollState() {
+    const atEnd = isAtEnd();
+    navScrollButton.classList.toggle("at-end", atEnd);
+    navScrollButton.setAttribute(
+      "aria-label",
+      atEnd ? "Scroll menu back to start" : "Scroll menu for more links"
+    );
+  }
+
+  navScrollButton.addEventListener("click", () => {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    navList.scrollTo({
+      left: isAtEnd() ? 0 : navList.scrollLeft + navList.clientWidth * 0.7,
+      behavior: reduceMotion ? "auto" : "smooth"
+    });
+  });
+
+  navList.addEventListener("scroll", updateNavScrollState, { passive: true });
+  window.addEventListener("resize", updateNavScrollState);
+  updateNavScrollState();
+</script>
+
+</body>
+</html>
