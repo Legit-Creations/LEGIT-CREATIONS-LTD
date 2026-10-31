@@ -1,12 +1,12 @@
 "use client"; // remove this line if you're not using the Next.js App Router
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /* ------------------------------------------------------------------ */
 /* Nav data: edit labels/hrefs here. Icons are inline SVG (no deps).   */
 /* ------------------------------------------------------------------ */
 
-type NavItem = { id: string; label: string; href: string; icon: reactNode };
+type NavItem = { id: string; label: string; href: string; icon: ReactNode };
 
 const iconProps = {
   width: 18,
