@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 /* Nav data: edit labels/hrefs here. Icons are inline SVG (no deps).   */
 /* ------------------------------------------------------------------ */
 
-type NavItem = { id: string; label: string; href: string; icon: JSX.Element };
+type NavItem = { id: string; label: string; href: string; icon: reactNode };
 
 const iconProps = {
   width: 18,
