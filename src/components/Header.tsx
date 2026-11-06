@@ -94,6 +94,7 @@ export default function Header() {
   const shouldReduceMotion = useReducedMotion();
   
   const navListRef = useRef<HTMLUListElement | null>(null);
+  const headerRef = useRef<HTMLElement | null>(null);
   
   function isAtEnd() {
     const navList = navListRef.current;
@@ -119,6 +120,26 @@ export default function Header() {
   }
   
   const [isScrolled, setIsScrolled] = useState(false);
+
+  // Keep the hero layout synchronized with the header's real rendered height.
+  useEffect(() => {
+    const header = headerRef.current;
+    if (!header) return;
+
+    const root = document.documentElement;
+    const updateHeaderHeight = () => {
+      root.style.setProperty('--lgc-header-height', `${header.getBoundingClientRect().height}px`);
+    };
+
+    updateHeaderHeight();
+    const observer = new ResizeObserver(updateHeaderHeight);
+    observer.observe(header);
+
+    return () => {
+      observer.disconnect();
+      root.style.removeProperty('--lgc-header-height');
+    };
+  }, []);
 
   useEffect(() => {
     let scrollFrame = 0;
@@ -180,6 +201,8 @@ export default function Header() {
   
   return (
     <header
+      ref={headerRef}
+      style={{ marginBottom: 'calc(-1 * var(--lgc-header-height, 113px))' }}
       className="sticky top-0 z-50 w-full bg-[#E9E9E9]/72 pt-[env(safe-area-inset-top)] backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)_saturate(155%)] supports-[backdrop-filter]:bg-[#E9E9E9]/72"
       data-scrolled={isScrolled ? 'true' : 'false'}
     >
