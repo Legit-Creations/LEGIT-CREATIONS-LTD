@@ -37,6 +37,8 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "framer-motion": "^12.26.2",
     "lucide-react": "^0.562.0",
     "next": "16.2.9",
