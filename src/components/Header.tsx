@@ -8,55 +8,27 @@ const navItems = [
   {
     label: 'Services',
     href: '#services',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 9.5c-1.6-2.2-4.6-.6-3.4 1.6.7 1.2 3.4 3 3.4 3s2.7-1.8 3.4-3c1.2-2.2-1.8-3.8-3.4-1.6Z" />
-        <path d="M2.5 14.5h2.8l3.2 1.6h4.2c.9 0 1.4 1.1.6 1.7l-.7.5" />
-        <path d="M5.3 14.5v6M8.5 18.5l6.8 1.7 6.2-3.2c.8-.5.5-1.7-.5-1.7h-3.9" />
-      </svg>
-    ),
+    icon: '/svg/24-service-svgrepo-com.svg',
   },
   {
     label: 'Solutions',
     href: '#solutions',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M12 8v4l2.5 2" />
-      </svg>
-    ),
+    icon: '/svg/solution-svgrepo-com.svg',
   },
   {
     label: 'Projects',
     href: '#projects',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="12" r="8.5" />
-        <path d="M12 8v4l2.5 2" />
-      </svg>
-    ),
+    icon: '/svg/project-svgrepo-com.svg',
   },
   {
     label: 'Resources & Insights',
     href: '#insights',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <circle cx="12" cy="7.5" r="3.2" />
-        <path d="M5.5 20.5v-1.2c0-3 2.9-5.3 6.5-5.3s6.5 2.3 6.5 5.3v1.2" />
-        <path d="M9.5 16.5l2.5 2.2 2.5-2.2" />
-      </svg>
-    ),
+    icon: '/svg/insights-parchment-svgrepo-com.svg',
   },
   {
     label: 'LGC',
     href: '#lgc',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <path d="M12 9.5c-1.6-2.2-4.6-.6-3.4 1.6.7 1.2 3.4 3 3.4 3s2.7-1.8 3.4-3c1.2-2.2-1.8-3.8-3.4-1.6Z" />
-        <path d="M2.5 14.5h2.8l3.2 1.6h4.2c.9 0 1.4 1.1.6 1.7l-.7.5" />
-        <path d="M5.3 14.5v6M8.5 18.5l6.8 1.7 6.2-3.2c.8-.5.5-1.7-.5-1.7h-3.9" />
-      </svg>
-    ),
+    icon: '/svg/corporate-svgrepo-com.svg',
   },
 ];
 function SearchIcon() {
@@ -280,8 +252,18 @@ export default function Header() {
                         : 'font-normal text-white'
                     }`}
                   >
-                    <span className="size-[17px] shrink-0">
-                      {item.icon}
+                    <span className="grid size-[17px] shrink-0 place-items-center overflow-hidden">
+                      <img
+                        src={item.icon}
+                        alt=""
+                        aria-hidden="true"
+                        draggable={false}
+                        className={`h-full w-full object-contain transition-[filter,transform] duration-200 ${
+                          activeLink === item.href
+                            ? 'brightness-0'
+                            : 'brightness-0 invert'
+                        } ${item.href === '#solutions' || item.href === '#lgc' ? 'scale-[1.45]' : ''}`}
+                      />
                     </span>
                     <RevealLine>{item.label}</RevealLine>
                   </a>
