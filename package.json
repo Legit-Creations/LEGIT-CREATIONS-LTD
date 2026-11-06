@@ -27,15 +27,6 @@
     "start": "next start",
     "lint": "eslint ."
   },
-  "browserslist": [
-    "last 2 chrome versions",
-    "last 2 safari versions",
-    "last 2 edge versions",
-    "last 2 firefox versions",
-    "not dead",
-    "not ie 11",
-    "not op_mini all"
-  ],
   "dependencies": {
     "framer-motion": "^12.26.2",
     "lucide-react": "^0.562.0",
