@@ -3,7 +3,7 @@ const Hero = () => {
     <section
       id="hero"
       aria-labelledby="hero-title"
-      className="relative isolate min-h-svh w-full overflow-hidden bg-[#F1EEE9] text-[#290F05]"
+      className="relative isolate min-h-dvh w-full overflow-hidden bg-[#F1EEE9] text-[#290F05]"
     >
       <div
         aria-hidden="true"
