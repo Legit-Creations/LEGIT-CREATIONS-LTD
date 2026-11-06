@@ -107,6 +107,32 @@ export default function Header() {
     });
   }
   
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    let scrollFrame = 0;
+
+    const updateScrollState = () => {
+      if (scrollFrame) return;
+
+      scrollFrame = window.requestAnimationFrame(() => {
+        scrollFrame = 0;
+        const nextValue = window.scrollY > 12;
+        setIsScrolled((currentValue) =>
+          currentValue === nextValue ? currentValue : nextValue,
+        );
+      });
+    };
+
+    updateScrollState();
+    window.addEventListener('scroll', updateScrollState, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', updateScrollState);
+      if (scrollFrame) window.cancelAnimationFrame(scrollFrame);
+    };
+  }, []);
+
   useEffect(() => {
     const navList = navListRef.current;
     if (!navList) return;
@@ -142,7 +168,10 @@ export default function Header() {
   }, []);
   
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#E9E9E9] pt-[env(safe-area-inset-top)]">
+    <header
+      className="sticky top-0 z-50 w-full bg-[#E9E9E9]/72 pt-[env(safe-area-inset-top)] backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)_saturate(155%)] supports-[backdrop-filter]:bg-[#E9E9E9]/72"
+      data-scrolled={isScrolled ? 'true' : 'false'}
+    >
       {/* Main header */}
       <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
@@ -151,7 +180,11 @@ export default function Header() {
           duration: shouldReduceMotion ? 0 : 0.45,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="flex h-[75px] w-full items-center justify-between px-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] md:px-[3%]"
+        className={`relative flex h-[75px] w-full items-center justify-between border-b px-4 backdrop-saturate-150 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out md:px-[3%] [border-image:linear-gradient(to_right,transparent,rgba(255,255,255,0.72),transparent)_1] [-webkit-backdrop-filter:blur(20px)_saturate(155%)] backdrop-blur-xl ${
+          isScrolled
+            ? 'border-white/70 bg-[#F4F0EB]/88 shadow-[0_8px_28px_rgba(41,15,5,0.13),inset_0_1px_0_rgba(255,255,255,0.9)]'
+            : 'border-white/55 bg-[#E9E9E9]/68 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),inset_0_-1px_0_rgba(41,15,5,0.08)]'
+        }`}
       >
         <a
           href="/"
