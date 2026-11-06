@@ -274,10 +274,10 @@ export default function Header() {
                     aria-current={
                       activeLink === item.href ? 'page' : undefined
                     }
-                    className={`flex h-[27px] items-center gap-[6px] rounded px-[8px] font-[var(--font-arimo)] text-[14px] whitespace-nowrap no-underline transition-colors hover:bg-white/10 ${
+                    className={`flex h-[27px] items-center gap-[6px] px-[8px] font-[var(--font-arimo)] text-[14px] whitespace-nowrap no-underline transition-colors hover:bg-white/10 ${
                       activeLink === item.href
-                        ? 'bg-[#D98A41] font-bold text-white'
-                        : 'font-normal text-white/75'
+                        ? 'rounded-none bg-[#D98A41] font-bold text-black'
+                        : 'font-normal text-white'
                     }`}
                   >
                     <span className="size-[17px] shrink-0">
