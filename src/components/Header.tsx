@@ -142,7 +142,7 @@ export default function Header() {
         <div className="flex items-center gap-[6px]">
           <a
             href="#contact"
-            className="inline-flex items-center justify-center rounded-[3px] bg-[#D98A41] px-[13px] py-3 text-center font-[var(--font-lato)] text-[14px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
+            className="inline-flex items-center justify-center bg-[#D98A41] px-3 py-3 text-center font-[var(--font-lato)] text-[14px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
           >
             Send Enquiry
           </a>
