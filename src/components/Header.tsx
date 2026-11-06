@@ -235,7 +235,7 @@ export default function Header() {
                   ? 'Scroll menu back to start'
                   : 'Scroll menu for more links'
               }
-              className={`grid size-6 shrink-0 place-items-center rounded-full bg-white text-[#290F05] ring-3 ring-[#F5F5F5] transition-transform duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] ${
+              className={`grid size-6 shrink-0 place-items-center rounded-full bg-white text-[#290F05] ring-3 ring-[#FFFFFF9C] transition-transform duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] ${
                 navAtEnd ? 'rotate-180' : ''
               }`}
             >
