@@ -49,16 +49,16 @@ const navItems = [
 function SearchIcon() {
   return (
     <svg
-      viewBox="0 0 24 24"
+      viewBox="0 0 40 40"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.8"
+      strokeWidth="2.2"
       strokeLinecap="round"
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      <circle cx="10.8" cy="10.8" r="6.8" />
-      <path d="m16 16 5 5" />
+      <circle cx="16" cy="16" r="12" />
+      <path d="m25 25 9 9" />
     </svg>
   );
 }
@@ -142,7 +142,7 @@ export default function Header() {
         <div className="flex items-center gap-[6px]">
           <a
             href="#contact"
-            className="grid h-[37px] place-items-center bg-[#1F1F6B] px-3 font-[var(--font-lato)] text-[13px] font-medium whitespace-nowrap text-white no-underline transition-colors hover:bg-[#2A2A8A]"
+            className="inline-flex items-center justify-center rounded-[3px] bg-[#D98A41] px-[13px] py-3 text-center font-[var(--font-lato)] text-[14px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
           >
             Send Enquiry
           </a>
