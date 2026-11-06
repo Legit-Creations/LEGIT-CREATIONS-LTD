@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
+import { DynamicMotionDiv } from './motion/DynamicMotion';
+import { RevealContainer, RevealLine } from './motion/Reveal';
 
 const navItems = [
 {
@@ -74,6 +77,7 @@ function ScrollIcon() {
 export default function Header() {
   const [activeLink, setActiveLink] = useState('#service');
   const [navAtEnd, setNavAtEnd] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
   
   const navListRef = useRef<HTMLUListElement | null>(null);
   
@@ -125,7 +129,15 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-[#E9E9E9] pt-[env(safe-area-inset-top)]">
       {/* Main header */}
-      <div className="flex h-[75px] w-full items-center justify-between px-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] md:px-[3%]">
+      <DynamicMotionDiv
+        initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: shouldReduceMotion ? 0 : 0.45,
+          ease: [0.16, 1, 0.3, 1],
+        }}
+        className="flex h-[75px] w-full items-center justify-between px-4 shadow-[inset_0_2px_4px_rgba(0,0,0,0.4)] md:px-[3%]"
+      >
         <a
           href="/"
           aria-label="Legit Creations Ltd, home"
@@ -156,7 +168,7 @@ export default function Header() {
             </span>
           </span>
         </div>
-      </div>
+      </DynamicMotionDiv>
 
       <hr className="mt-[5px] h-0 border-0 border-t border-[#545454]" />
 
@@ -164,10 +176,14 @@ export default function Header() {
       <nav aria-label="Primary">
         <div className="relative flex h-[33px] w-full justify-center bg-[#471F0E69]">
           <div className="absolute top-[-13px] flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5">
-            <ul
-              ref={navListRef}
-              className="flex min-w-0 flex-1 items-center gap-4 overflow-x-auto [mask-image:linear-gradient(to_right,black_88%,transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            <RevealContainer
+              className="min-w-0 flex-1"
+              staggerDelay={0.065}
             >
+              <ul
+                ref={navListRef}
+                className="flex min-w-0 items-center gap-4 overflow-x-auto [mask-image:linear-gradient(to_right,black_88%,transparent)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+              >
               {navItems.map((item) => (
                 <li key={item.href} className="shrink-0">
                   <a
@@ -185,11 +201,12 @@ export default function Header() {
                     <span className="size-[17px] shrink-0">
                       {item.icon}
                     </span>
-                    {item.label}
+                    <RevealLine>{item.label}</RevealLine>
                   </a>
                 </li>
               ))}
-            </ul>
+              </ul>
+            </RevealContainer>
 
             <button
               type="button"
