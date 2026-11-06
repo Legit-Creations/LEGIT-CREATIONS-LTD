@@ -129,9 +129,9 @@ export default function Header() {
         <a
           href="/"
           aria-label="Legit Creations Ltd, home"
-          className="flex flex-col items-end font-[var(--font-arimo)] leading-[15px] text-[#2A1006] no-underline"
+          className="flex flex-col items-end font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline"
         >
-          <span className="text-[18px] font-bold tracking-[-0.3px]">
+          <span className="text-[18px] font-bold tracking-[0.1px]">
             LEGIT CREATIONS
           </span>
           <span className="text-[12px] font-normal tracking-[0.5px]">
@@ -176,10 +176,10 @@ export default function Header() {
                     aria-current={
                       activeLink === item.href ? 'page' : undefined
                     }
-                    className={`flex h-[23px] items-center gap-[6px] rounded px-[6px] font-[var(--font-arimo)] text-[14px] font-bold whitespace-nowrap text-white no-underline transition-colors hover:bg-white/10 ${
+                    className={`flex h-[27px] items-center gap-[6px] rounded px-[8px] font-[var(--font-arimo)] text-[14px] whitespace-nowrap no-underline transition-colors hover:bg-white/10 ${
                       activeLink === item.href
-                        ? 'bg-[#D98A41] text-[#14144F]'
-                        : ''
+                        ? 'bg-[#D98A41] font-bold text-white'
+                        : 'font-normal text-white/75'
                     }`}
                   >
                     <span className="size-[17px] shrink-0">
