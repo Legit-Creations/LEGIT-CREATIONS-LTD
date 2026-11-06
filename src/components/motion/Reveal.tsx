@@ -13,7 +13,7 @@ interface RevealContainerProps {
 export function RevealContainer({
   children,
   className = "",
-  staggerDelay = 0.1,
+  staggerDelay = 0.055,
   immediate = false,
 }: RevealContainerProps) {
   const shouldReduceMotion = useReducedMotion();
@@ -28,7 +28,7 @@ export function RevealContainer({
         ? undefined
         : {
             staggerChildren: shouldReduceMotion ? 0 : staggerDelay,
-            delayChildren: shouldReduceMotion ? 0 : 0.1,
+            delayChildren: shouldReduceMotion ? 0 : 0.06,
           },
     },
   };
@@ -36,7 +36,7 @@ export function RevealContainer({
   return (
     <motion.div
       variants={containerVariants}
-      initial={immediate ? false : "hidden"}
+      initial={immediate || shouldReduceMotion ? false : "hidden"}
       animate={immediate ? undefined : "visible"}
       className={className}
     >
@@ -69,7 +69,7 @@ export function RevealLine({
       y: "0%",
       opacity: 1,
       transition: {
-        duration: shouldReduceMotion ? 0 : 0.9,
+        duration: shouldReduceMotion ? 0 : 0.42,
         ease: [0.16, 1, 0.3, 1] as const,
       },
     },
