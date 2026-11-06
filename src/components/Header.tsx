@@ -67,8 +67,16 @@ function SearchIcon() {
 
 function ScrollIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M3 12h17M14 6l6 6-6 6" />
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="m8 5 7 7-7 7" />
     </svg>
   );
 }
@@ -227,7 +235,7 @@ export default function Header() {
                   ? 'Scroll menu back to start'
                   : 'Scroll menu for more links'
               }
-              className={`grid size-8 shrink-0 place-items-center rounded-full border-2 border-[#B5B5B5] bg-white text-black transition-transform focus-visible:outline-2 focus-visible:outline-[#D98A41] ${
+              className={`grid size-8 shrink-0 place-items-center rounded-full border border-white/20 bg-white text-[#290F05] transition-transform duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] ${
                 navAtEnd ? 'rotate-180' : ''
               }`}
             >
