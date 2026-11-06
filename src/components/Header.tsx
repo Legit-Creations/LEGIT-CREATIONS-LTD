@@ -1,8 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useReducedMotion } from 'framer-motion';
-import { DynamicMotionDiv } from './motion/DynamicMotion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { RevealContainer, RevealLine } from './motion/Reveal';
 
 const navItems = [
@@ -88,10 +87,6 @@ export default function Header() {
     return navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 4;
   }
   
-  function updateNavScrollState() {
-    setNavAtEnd(isAtEnd());
-  }
-  
   function scrollNavigation() {
     const navList = navListRef.current;
     if (!navList) return;
@@ -111,25 +106,41 @@ export default function Header() {
   useEffect(() => {
     const navList = navListRef.current;
     if (!navList) return;
-    
-    updateNavScrollState();
-    
-    navList.addEventListener('scroll', updateNavScrollState, {
+
+    const getIsAtEnd = () =>
+      navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 4;
+
+    setNavAtEnd(getIsAtEnd());
+
+    let frameId = 0;
+    const scheduleNavStateUpdate = () => {
+      if (frameId) return;
+
+      frameId = window.requestAnimationFrame(() => {
+        frameId = 0;
+        const nextValue = getIsAtEnd();
+        setNavAtEnd((currentValue) =>
+          currentValue === nextValue ? currentValue : nextValue,
+        );
+      });
+    };
+
+    navList.addEventListener('scroll', scheduleNavStateUpdate, {
       passive: true,
     });
-    
-    window.addEventListener('resize', updateNavScrollState);
-    
+    window.addEventListener('resize', scheduleNavStateUpdate);
+
     return () => {
-      navList.removeEventListener('scroll', updateNavScrollState);
-      window.removeEventListener('resize', updateNavScrollState);
+      navList.removeEventListener('scroll', scheduleNavStateUpdate);
+      window.removeEventListener('resize', scheduleNavStateUpdate);
+      if (frameId) window.cancelAnimationFrame(frameId);
     };
   }, []);
   
   return (
     <header className="sticky top-0 z-50 w-full bg-[#E9E9E9] pt-[env(safe-area-inset-top)]">
       {/* Main header */}
-      <DynamicMotionDiv
+      <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{
@@ -168,7 +179,7 @@ export default function Header() {
             </span>
           </span>
         </div>
-      </DynamicMotionDiv>
+      </motion.div>
 
       <hr className="mt-[5px] h-0 border-0 border-t border-[#545454]" />
 
@@ -178,7 +189,7 @@ export default function Header() {
           <div className="absolute top-[-13px] flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5">
             <RevealContainer
               className="min-w-0 flex-1"
-              staggerDelay={0.065}
+              staggerDelay={0.055}
             >
               <ul
                 ref={navListRef}
