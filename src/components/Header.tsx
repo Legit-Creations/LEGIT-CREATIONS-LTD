@@ -268,7 +268,7 @@ export default function Header() {
                 navAtEnd ? 'rotate-180' : ''
               }`}
             >
-              <span className="size-5">
+              <span className="size-3">
                 <ScrollIcon />
               </span>
             </button>
