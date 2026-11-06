@@ -232,7 +232,7 @@ export default function Header() {
       <hr className="mt-[5px] h-0 border-0 border-t border-[#545454]" />
 
       {/* Primary navigation */}
-      <nav aria-label="Primary" className="pb-[13px]">
+      <nav aria-label="Primary">
         <div className="relative flex h-[33px] w-full justify-center bg-[#471F0E69]">
           <div className="absolute top-[-13px] flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5">
             <RevealContainer
@@ -286,7 +286,6 @@ export default function Header() {
           </div>
         </div>
       </nav>
-
     </header>
   );
 }
