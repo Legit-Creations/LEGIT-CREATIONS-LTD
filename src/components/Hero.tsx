@@ -1,4 +1,6 @@
 'use client';
+
+import Image from "next/image";
 const Hero = () => {
   return (
     <section
@@ -17,10 +19,14 @@ const Hero = () => {
 
       <div className="mx-auto w-full max-w-[1080px] px-6 pb-9 md:px-10 md:pt-9 md:pb-14">
         <div className="mb-[35px] flex items-center justify-center gap-[18px] md:mb-8 md:justify-start">
-          <img
-            className="h-auto w-[55px] shrink-0 bg-transparent object-contain"
+          <Image
             src="/logo-nobkg.png"
             alt="Legit Creations emblem"
+            width={55}
+            height={55}
+            sizes="55px"
+            priority
+            className="h-auto w-[55px] shrink-0 bg-transparent object-contain"
             draggable={false}
           />
           <span
