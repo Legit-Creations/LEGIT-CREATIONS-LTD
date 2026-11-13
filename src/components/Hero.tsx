@@ -1,3 +1,4 @@
+'use client';
 const Hero = () => {
   return (
     <section
@@ -18,7 +19,7 @@ const Hero = () => {
         <div className="mb-[35px] flex items-center justify-center gap-[18px] md:mb-8 md:justify-start">
           <img
             className="h-auto w-[55px] shrink-0 bg-transparent object-contain"
-            src="/public/logo-nobkg.png"
+            src="/logo-nobkg.png"
             alt="Legit Creations emblem"
             draggable={false}
           />
