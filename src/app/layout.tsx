@@ -3,7 +3,6 @@ import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Questrial, Ubuntu } from "next/font/google";
 import "./globals.css";
-import ClientProtector from "@/components/ClientProtector";
 import {
   BRAND,
   METADATA_TEMPLATES,
@@ -125,9 +124,6 @@ export default function RootLayout({
       className={`${inter.variable} ${ubuntu.variable} ${questrial.variable} scroll-smooth`}
     >
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
-        {/* Client-side protection */}
-        <ClientProtector />
-
         {/* Application */}
         {children}
 
