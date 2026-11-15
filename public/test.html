@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#E9E9E9">
+  <title>Legit Creations Ltd. — Homepage Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --header-bg: #E9E9E9;
+      --brown: #290F05;
+      --brown-strip: #471F0E69;
+      --navy: #1F1F6B;
+      --orange: #D98A41;
+      --crimson: #A80F18;
+      --brand: #2A1006;
+      --header-height: 113px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      overflow-x: clip;
+      background: #fff;
+      color: #171717;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      width: 100%;
+      margin-bottom: calc(-1 * var(--header-height));
+      padding-top: env(safe-area-inset-top, 0px);
+      background: rgb(233 233 233 / 72%);
+      -webkit-backdrop-filter: blur(20px) saturate(155%);
+      backdrop-filter: blur(20px) saturate(155%);
+    }
+    .header-main {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 75px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      border-bottom: 1px solid transparent;
+      border-image: linear-gradient(to right, transparent, rgba(255,255,255,.72), transparent) 1;
+      background: rgb(233 233 233 / 68%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(41,15,5,.08);
+      -webkit-backdrop-filter: blur(20px) saturate(155%);
+      backdrop-filter: blur(20px) saturate(155%);
+      transition: background-color .3s ease, backdrop-filter .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .site-header[data-scrolled="true"] .header-main {
+      border-bottom-color: rgba(255,255,255,.7);
+      background: rgb(244 240 235 / 88%);
+      box-shadow: 0 8px 28px rgba(41,15,5,.13), inset 0 1px 0 rgba(255,255,255,.9);
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      color: var(--brand);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 16px;
+      text-decoration: none;
+    }
+    .brand-name { font-size: 19px; font-weight: 700; letter-spacing: .1px; }
+    .brand-suffix { font-size: 12px; font-weight: 400; letter-spacing: .5px; }
+    .header-actions { display: flex; align-items: center; gap: 6px; }
+    .enquiry-button {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 12px;
+      border-radius: 7px;
+      background: var(--orange);
+      color: var(--brown);
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+      text-align: center;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background-color .2s ease;
+    }
+    .enquiry-button:hover { background: #E49A54; }
+    .search-mark { display: grid; width: 36px; height: 36px; place-items: center; color: #000; }
+    .search-mark svg { display: block; width: 22px; height: 22px; }
+    .header-divider { height: 0; margin: 5px 0 0; border: 0; border-top: 1px solid #545454; }
+    .nav-rail {
+      position: relative;
+      display: flex;
+      width: 100%;
+      height: 33px;
+      justify-content: center;
+      background: var(--brown-strip);
+    }
+    .nav-shell {
+      position: absolute;
+      top: -13px;
+      display: flex;
+      width: 97%;
+      height: 40px;
+      align-items: center;
+      gap: 8px;
+      padding: 0 20px;
+      background: var(--brown);
+    }
+    .nav-list {
+      display: flex;
+      min-width: 0;
+      flex: 1;
+      align-items: center;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      list-style: none;
+      scrollbar-width: none;
+      -webkit-mask-image: linear-gradient(to right, black 88%, transparent);
+      mask-image: linear-gradient(to right, black 88%, transparent);
+    }
+    .nav-list::-webkit-scrollbar { display: none; }
+    .nav-list li { flex-shrink: 0; }
+    .nav-link {
+      display: flex;
+      height: 27px;
+      align-items: center;
+      gap: 6px;
+      padding: 0 8px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      white-space: nowrap;
+      text-decoration: none;
+      transition: background-color .2s, color .2s;
+    }
+    .nav-link:hover { background: rgba(255,255,255,.1); }
+    .nav-link[aria-current="page"] {
+      border-radius: 0;
+      background: var(--orange);
+      color: #000;
+      font-weight: 700;
+    }
+    .nav-icon {
+      display: grid;
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      place-items: center;
+      overflow: hidden;
+    }
+    .nav-icon img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      transition: filter .2s, transform .2s;
+    }
+    .nav-link[aria-current="page"] .nav-icon img { filter: brightness(0); }
+    .nav-link[href="#solutions"] .nav-icon img,
+    .nav-link[href="#lgc"] .nav-icon img { transform: scale(1.45); }
+    .nav-scroll-button {
+      display: grid;
+      width: 24px;
+      height: 24px;
+      flex: 0 0 24px;
+      place-items: center;
+      border: 0;
+      border-radius: 50%;
+      background: #FFFFFFDB;
+      color: var(--brown);
+      box-shadow: 0 0 0 3px #FFFFFF9C;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+    .nav-scroll-button svg { display: block; width: 12px; height: 12px; }
+    .nav-scroll-button.at-end { transform: rotate(180deg); }
+
+    /* =========================================================
+       HERO SECTION & CONTENT
+       ========================================================= */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      min-height: 100vh;
+      min-height: 100svh;
+      padding-top: calc(var(--header-height) + 28px);
+      overflow: hidden;
+      background: #F1EEE9;
+      color: var(--brown);
+    }
+    .hero-art { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+    .hero-orb-orange {
+      position: absolute;
+      top: -9rem;
+      right: -10rem;
+      width: 34rem;
+      height: 34rem;
+      border-radius: 9999px;
+      background: rgba(217,138,65,.15);
+      filter: blur(48px);
+    }
+    .hero-orb-navy {
+      position: absolute;
+      bottom: -14rem;
+      left: -10rem;
+      width: 32rem;
+      height: 32rem;
+      border-radius: 9999px;
+      background: rgba(31,31,107,.10);
+      filter: blur(48px);
+    }
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      background-image:
+        linear-gradient(rgba(41,15,5,.12) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(41,15,5,.12) 1px, transparent 1px);
+      background-size: 64px 64px;
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent 85%);
+      mask-image: linear-gradient(to bottom, black, transparent 85%);
+    }
+
+    /* Middle Hero Content */
+    .hero-container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding:0px 24px 36px;
+    }
+    .hero-lockup {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      margin-bottom: 35px;
+    }
+    .hero-emblem {
+      width: 55px;
+      height: auto;
+      background: transparent;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .hero-lockup-divider {
+      width: 1.5px;
+      height: 40px;
+      background: #262B3E;
+    }
+    .hero-tagline {
+      margin: 0;
+      color: #262B3E;
+      font-size: 11px;
+      font-weight: 700;
+  
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+.hero-headline {
+  max-width: 780px;
+  margin: 0 0 20px;
+  color: #262B3E;
+  font-family: 'Questrial', sans-serif;
+  font-size: clamp(1rem, 6vw, 2rem);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+}
+
+.hero-description {
+  max-width: 680px;
+  color: #262B3E;
+  font-weight: 400;
+  font-family: 'Questrial', sans-serif;
+  font-size: clamp(0.75rem, 2.2vw, 1rem);
+  line-height: 1.60;
+}
+
+    .hero-description p {
+      margin: 0 0 ;
+    }
+    .hero-description p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* =========================================================
+       BOTTOM HERO BANNER (Founder Spotlight & Capabilities)
+       ========================================================= */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      padding: 20px 16px 0;
+      border-top: 1px solid rgba(41, 15, 5, 0.08);
+      background: linear-gradient(135deg, #F6F7F8 0%, #FFFFFF 55%, #EFF1F4 100%);
+      background-image:
+        linear-gradient(rgba(41,15,5,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(41,15,5,.04) 1px, transparent 1px),
+        linear-gradient(135deg, #F6F7F8 0%, #FFFFFF 55%, #EFF1F4 100%);
+      background-size: 56px 56px, 56px 56px, 100% 100%;
+    }
+    .hero-banner-inner {
+      display: grid;
+      grid-template-columns: minmax(125px, 36%) 1fr;
+      align-items: center;
+      gap: 16px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+  
+
+
+    /* =========================================================
+       LGC BOTTOM VISUAL — COMPANY DETAILS + THREE-IMAGE GRID
+       Desktop reference: 1105 × 560px overall composition.
+       ========================================================= */
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 32px, 1105px);
+      height: 560px;
+      flex: 0 0 auto;
+      display: grid;
+      grid-template-rows: 104px 447px;
+      gap: 9px;
+      margin: 0 auto 18px;
+      padding: 0;
+      overflow: visible;
+      border-radius: 17px;
+      background: var(--brown);
+      box-shadow: 11px 11px 0 rgba(41,15,5,.16);
+    }
+    .hero-visual-meta {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px clamp(22px, 7.5%, 82px);
+      border-radius: 17px 17px 0 0;
+      color: #E9DED5;
+    }
+    .company-ids {
+      display: grid;
+      gap: 2px;
+      color: #E9DED5;
+      font-family: 'Questrial', sans-serif;
+      font-size: clamp(12px, 1.8vw, 19px);
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .social-marks {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 22px);
+      color: #E9DED5;
+    }
+    .social-mark {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      flex: 0 0 27px;
+      place-items: center;
+      color: inherit;
+    }
+    .social-mark svg { display: block; width: 100%; height: 100%; }
+    .visual-grid {
+      display: grid;
+      min-width: 0;
+      min-height: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 9px;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 0 0 17px 17px;
+    }
+    .visual-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+    .visual-grid-left { grid-column: 1; grid-row: 1; }
+    .visual-grid-right {
+      display: grid;
+      min-width: 0;
+      min-height: 0;
+      grid-column: 2;
+      grid-row: 1;
+      grid-template-rows: 1fr 1fr;
+      gap: 9px;
+    }
+    .visual-grid-right img { min-height: 0; }
+    @media (max-width: 600px) {
+      .hero-visual {
+        width: calc(100% - 16px);
+        height: auto;
+        grid-template-rows: 72px auto;
+        gap: 7px;
+        margin-bottom: 16px;
+        box-shadow: 7px 7px 0 rgba(41,15,5,.16);
+      }
+      .hero-visual-meta { padding: 12px 16px; gap: 10px; }
+      .company-ids { font-size: 10px; letter-spacing: .13em; }
+      .social-marks { gap: 9px; }
+      .social-mark { width: 21px; height: 21px; flex-basis: 21px; }
+      .visual-grid {
+        height: clamp(210px, 54vw, 330px);
+        gap: 7px;
+      }
+      .visual-grid-right { gap: 7px; }
+      .visual-grid img { border-radius: 10px; }
+    }
+    @media (min-width: 601px) and (max-width: 900px) {
+      .hero-visual {
+        height: auto;
+        grid-template-rows: 88px min(40.45vw, 447px);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .header-main { padding-right: 3%; padding-left: 3%; }
+      .hero-container { padding: 36px 40px 56px; }
+      .hero-lockup { justify-content: flex-start; margin-bottom: 32px; }
+      .hero-banner { padding: 28px 40px 0; }
+      .hero-banner-inner {
+        grid-template-columns: 280px 1fr;
+        gap: 44px;
+      }
+      .banner-content {
+        gap: 18px;
+        padding: 16px 0 32px;
+      }
+      .banner-wordmark { width: 380px; }
+      .trust-pill { padding: 8px 16px; gap: 12px; }
+      .trust-stars svg { width: 17px; height: 17px; }
+      .btn-pill { min-height: 46px; padding: 11px 26px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" id="site-header">
+    <div class="header-main">
+      <a class="brand" href="/" aria-label="Legit Creations Ltd, home">
+        <span class="brand-name">LEGIT CREATIONS</span>
+        <span class="brand-suffix">ltd.</span>
+      </a>
+      <div class="header-actions">
+        <a class="enquiry-button" href="#contact">Send Enquiry</a>
+        <span class="search-mark" aria-hidden="true">
+          <svg viewBox="0 0 512 512" fill="currentColor" focusable="false">
+            <path d="M0 0 C1.24 -.01 1.24 -.01 2.51 -.03 C21.39 -.21 39.54 .14 58.07 4.24 C59.36 4.52 59.36 4.52 60.68 4.81 C87.6 10.85 113.55 22.31 136.07 38.24 C136.63 38.64 137.2 39.04 137.79 39.45 C144.09 43.93 149.97 48.76 155.65 54.01 C157.23 55.47 158.83 56.9 160.45 58.31 C197.14 90.27 220.54 136.45 228.07 184.24 C228.18 184.93 228.3 185.63 228.42 186.34 C237.08 240.13 223.36 298.6 191.85 342.94 C189.33 346.43 186.71 349.84 184.07 353.24 C182.88 354.82 181.69 356.4 180.5 357.99 C179.69 359.07 178.88 360.16 178.07 361.24 C183.51 367.87 189.56 373.85 195.64 379.89 C196.81 381.06 197.98 382.23 199.15 383.39 C201.66 385.9 204.17 388.4 206.68 390.89 C210.65 394.85 214.61 398.8 218.58 402.76 C229.85 414 241.12 425.24 252.4 436.48 C258.64 442.69 264.88 448.91 271.11 455.13 C275.05 459.07 278.99 463 282.94 466.92 C285.39 469.36 287.84 471.81 290.29 474.25 C291.42 475.39 292.56 476.52 293.7 477.65 C295.25 479.19 296.8 480.74 298.35 482.29 C299.22 483.15 300.08 484.02 300.98 484.91 C305.2 489.62 305.5 493.37 305.39 499.54 C304.94 503.29 303.52 505.43 301.07 508.24 C300.55 508.84 300.04 509.43 299.5 510.05 C296.58 512.47 293.39 512.46 289.75 512.55 C288.83 512.59 287.91 512.63 286.95 512.66 C280.97 511.78 276.8 507.22 272.68 503.09 C272.17 502.58 271.66 502.08 271.14 501.56 C269.45 499.87 267.77 498.18 266.09 496.49 C264.88 495.28 263.67 494.07 262.46 492.86 C259.17 489.57 255.9 486.29 252.62 483 C249.19 479.56 245.76 476.12 242.33 472.69 C235.83 466.18 229.34 459.68 222.85 453.17 C215.46 445.76 208.07 438.35 200.67 430.95 C185.46 415.72 170.26 400.48 155.07 385.24 C151.2 387.51 147.76 390 144.25 392.8 C127.12 406.18 107.49 416.86 87.07 424.24 C86.08 424.61 86.08 424.61 85.08 424.99 C30.82 445.29 -30.41 440.53 -82.63 416.78 C-104.08 406.72 -122.88 392.77 -140.18 376.68 C-140.85 376.06 -141.51 375.45 -142.19 374.82 C-146.74 370.53 -150.88 365.99 -154.93 361.24 C-155.73 360.35 -156.53 359.45 -157.35 358.54 C-196.82 313.07 -210.6 253.63 -206.7 194.74 C-206.15 188.82 -205.19 183.05 -203.93 177.24 C-203.76 176.39 -203.59 175.55 -203.41 174.68 C-193.03 124.28 -164.85 77.74 -123.93 46.24 C-123.04 45.53 -122.14 44.81 -121.22 44.08 C-87.29 17.69 -43.2 .43 0 0 Z M-119.54 84.9 C-120.73 86.04 -121.93 87.17 -123.14 88.29 C-129.47 94.32 -134.68 101.28 -139.93 108.24 C-140.89 109.51 -140.89 109.51 -141.88 110.8 C-170.33 149.88 -180.75 199.76 -173.93 247.24 C-169.19 275.93 -158.67 302.45 -141.93 326.24 C-141.53 326.81 -141.13 327.39 -140.71 327.98 C-112.21 367.99 -68.81 393.99 -20.93 403.24 C-19.85 403.45 -18.77 403.67 -17.65 403.89 C28.93 412.12 78.29 399.76 117.07 373.24 C125.41 367.21 133.19 360.71 140.63 353.6 C142.01 352.29 143.41 350.99 144.8 349.7 C176.29 319.58 196.97 273.64 198.36 229.98 C198.43 226.25 198.45 222.53 198.44 218.8 C198.44 218.01 198.44 217.23 198.44 216.42 C198.4 203.02 197.32 190.27 194.07 177.24 C193.84 176.33 193.62 175.42 193.38 174.49 C187.5 151.39 178.13 129.59 164.07 110.24 C163.32 109.21 162.57 108.18 161.8 107.11 C157.34 101.07 152.54 95.39 147.44 89.86 C146.93 89.3 146.41 88.75 145.88 88.17 C111.43 51.51 64.09 33.75 14.63 31.05 C-35.89 30 -83.38 50.31 -119.54 84.9 Z" transform="translate(206.93359375,-0.23828125)"/>
+          </svg>
+        </span>
+      </div>
+    </div>
+    <hr class="header-divider">
+    <nav aria-label="Primary">
+      <div class="nav-rail">
+        <div class="nav-shell">
+          <ul class="nav-list" id="nav-list">
+            <li><a class="nav-link" href="#services"><span class="nav-icon"><img src="/svg/24-service-svgrepo-com.svg" alt="" draggable="false"></span><span>Services</span></a></li>
+            <li><a class="nav-link" href="#solutions"><span class="nav-icon"><img src="/svg/solution-svgrepo-com.svg" alt="" draggable="false"></span><span>Solutions</span></a></li>
+            <li><a class="nav-link" href="#projects"><span class="nav-icon"><img src="/svg/project-svgrepo-com.svg" alt="" draggable="false"></span><span>Projects</span></a></li>
+            <li><a class="nav-link" href="#insights"><span class="nav-icon"><img src="/svg/insights-parchment-svgrepo-com.svg" alt="" draggable="false"></span><span>Resources &amp; Insights</span></a></li>
+            <li><a class="nav-link" href="#lgc"><span class="nav-icon"><img src="/svg/corporate-svgrepo-com.svg" alt="" draggable="false"></span><span>LGC</span></a></li>
+          </ul>
+          <button class="nav-scroll-button" id="nav-scroll-button" type="button" aria-label="Scroll menu for more links">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero" aria-label="Hero">
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-orb-orange"></div>
+        <div class="hero-orb-navy"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <!-- Main Hero Content -->
+      <div class="hero-container">
+        <div class="hero-lockup">
+          <img class="hero-emblem" src="/logo-nobkg.png" alt="Legit Creations emblem" draggable="false">
+          <span class="hero-lockup-divider" aria-hidden="true"></span>
+          <p class="hero-tagline">Efficiency Is<br>The Product</p>
+        </div>
+
+        <h1 class="hero-headline">
+          Are you a Solo founder, Registered Business or a growing Company?
+        </h1>
+
+        <div class="hero-description">
+          <p>
+            Legit Creations (LGC) is a West African technology startup focused on advancing digital experiences and improving business efficiency.
+          </p>
+          <p>
+            We design and build custom software, digital commerce infrastructure and intelligent systems that connect businesses with their customers, simplify commercial activities and enable businesses to operate more effectively online.
+          </p>
+        </div>
+      </div>
+
+      <!-- LGC company details and three-image visual grid -->
+      <section class="hero-visual" aria-label="Legit Creations company details and work imagery">
+        <div class="hero-visual-meta">
+          <div class="company-ids" aria-label="Company registration details">
+            <span>TIN: 2621057130396</span>
+            <span>RC: 9721319</span>
+          </div>
+          <div class="social-marks" aria-label="Social media">
+            <span class="social-mark" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span class="social-mark" aria-label="X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 3 20 21M20 3 4 21"/></svg>
+            </span>
+            <span class="social-mark" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.7 3.4 18.5 20c-.24 1.17-.88 1.46-1.78.91l-4.92-3.63-2.37 2.28c-.26.26-.48.48-.98.48l.35-5.01 9.12-8.24c.4-.35-.09-.55-.62-.2L6.03 13.66l-4.84-1.51c-1.05-.33-1.07-1.05.22-1.56L20.33 3.1c.87-.32 1.63.21 1.37.3Z"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="visual-grid">
+          <img class="visual-grid-left" src="/webcoding.jpeg" alt="Web development and software engineering" loading="lazy" decoding="async">
+          <div class="visual-grid-right">
+            <img src="/ecommerce.jpeg" alt="E-commerce customer experience" loading="lazy" decoding="async">
+            <img src="/finance.jpeg" alt="Finance and business analytics" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script>
+    (function () {
+      const header = document.getElementById('site-header');
+      const navList = document.getElementById('nav-list');
+      const scrollButton = document.getElementById('nav-scroll-button');
+      let scrollFrame = 0;
+
+      function syncHeaderHeight() {
+        document.documentElement.style.setProperty('--header-height', header.getBoundingClientRect().height + 'px');
+      }
+      function syncScrolledState() {
+        header.dataset.scrolled = window.scrollY > 12 ? 'true' : 'false';
+      }
+      function isAtEnd() {
+        return navList.scrollLeft + navList.clientWidth >= navList.scrollWidth - 4;
+      }
+      function updateNavState() {
+        const atEnd = isAtEnd();
+        scrollButton.classList.toggle('at-end', atEnd);
+        scrollButton.setAttribute('aria-label', atEnd ? 'Scroll menu back to start' : 'Scroll menu for more links');
+      }
+
+      syncHeaderHeight();
+      syncScrolledState();
+      updateNavState();
+
+      if ('ResizeObserver' in window) {
+        const observer = new ResizeObserver(syncHeaderHeight);
+        observer.observe(header);
+      }
+      window.addEventListener('resize', function () {
+        syncHeaderHeight();
+        updateNavState();
+      });
+      window.addEventListener('scroll', function () {
+        if (scrollFrame) return;
+        scrollFrame = window.requestAnimationFrame(function () {
+          scrollFrame = 0;
+          syncScrolledState();
+        });
+      }, { passive: true });
+      navList.addEventListener('scroll', updateNavState, { passive: true });
+      scrollButton.addEventListener('click', function () {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        navList.scrollTo({
+          left: isAtEnd() ? 0 : navList.scrollLeft + navList.clientWidth * .7,
+          behavior: reduceMotion ? 'auto' : 'smooth'
+        });
+      });
+      navList.querySelectorAll('.nav-link').forEach(function (link) {
+        link.addEventListener('click', function () {
+          navList.querySelectorAll('.nav-link').forEach(function (item) {
+            item.removeAttribute('aria-current');
+          });
+          link.setAttribute('aria-current', 'page');
+        });
+      });
+    }());
+  </script>
+</body>
+</html>
