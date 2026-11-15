@@ -323,6 +323,121 @@
     }
   
 
+
+    /* =========================================================
+       LGC BOTTOM VISUAL — COMPANY DETAILS + THREE-IMAGE GRID
+       Desktop reference: 1105 × 560px overall composition.
+       ========================================================= */
+    .hero-visual {
+      position: relative;
+      z-index: 1;
+      width: min(100% - 32px, 1105px);
+      height: 560px;
+      flex: 0 0 auto;
+      display: grid;
+      grid-template-rows: 104px 447px;
+      gap: 9px;
+      margin: 0 auto 18px;
+      padding: 0;
+      overflow: visible;
+      border-radius: 17px;
+      background: var(--brown);
+      box-shadow: 11px 11px 0 rgba(41,15,5,.16);
+    }
+    .hero-visual-meta {
+      display: flex;
+      min-width: 0;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 20px clamp(22px, 7.5%, 82px);
+      border-radius: 17px 17px 0 0;
+      color: #E9DED5;
+    }
+    .company-ids {
+      display: grid;
+      gap: 2px;
+      color: #E9DED5;
+      font-family: 'Questrial', sans-serif;
+      font-size: clamp(12px, 1.8vw, 19px);
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+    .social-marks {
+      display: flex;
+      align-items: center;
+      gap: clamp(12px, 2vw, 22px);
+      color: #E9DED5;
+    }
+    .social-mark {
+      display: grid;
+      width: 27px;
+      height: 27px;
+      flex: 0 0 27px;
+      place-items: center;
+      color: inherit;
+    }
+    .social-mark svg { display: block; width: 100%; height: 100%; }
+    .visual-grid {
+      display: grid;
+      min-width: 0;
+      min-height: 0;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 9px;
+      padding: 0;
+      overflow: hidden;
+      border-radius: 0 0 17px 17px;
+    }
+    .visual-grid img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-width: 0;
+      min-height: 0;
+      object-fit: cover;
+      border-radius: 17px;
+    }
+    .visual-grid-left { grid-column: 1; grid-row: 1; }
+    .visual-grid-right {
+      display: grid;
+      min-width: 0;
+      min-height: 0;
+      grid-column: 2;
+      grid-row: 1;
+      grid-template-rows: 1fr 1fr;
+      gap: 9px;
+    }
+    .visual-grid-right img { min-height: 0; }
+    @media (max-width: 600px) {
+      .hero-visual {
+        width: calc(100% - 16px);
+        height: auto;
+        grid-template-rows: 72px auto;
+        gap: 7px;
+        margin-bottom: 16px;
+        box-shadow: 7px 7px 0 rgba(41,15,5,.16);
+      }
+      .hero-visual-meta { padding: 12px 16px; gap: 10px; }
+      .company-ids { font-size: 10px; letter-spacing: .13em; }
+      .social-marks { gap: 9px; }
+      .social-mark { width: 21px; height: 21px; flex-basis: 21px; }
+      .visual-grid {
+        height: clamp(210px, 54vw, 330px);
+        gap: 7px;
+      }
+      .visual-grid-right { gap: 7px; }
+      .visual-grid img { border-radius: 10px; }
+    }
+    @media (min-width: 601px) and (max-width: 900px) {
+      .hero-visual {
+        height: auto;
+        grid-template-rows: 88px min(40.45vw, 447px);
+      }
+    }
+
     @media (min-width: 768px) {
       .header-main { padding-right: 3%; padding-left: 3%; }
       .hero-container { padding: 36px 40px 56px; }
@@ -412,7 +527,33 @@
         </div>
       </div>
 
-      <!-- Bottom Hero Banner -->
+      <!-- LGC company details and three-image visual grid -->
+      <section class="hero-visual" aria-label="Legit Creations company details and work imagery">
+        <div class="hero-visual-meta">
+          <div class="company-ids" aria-label="Company registration details">
+            <span>TIN: 2621057130396</span>
+            <span>RC: 9721319</span>
+          </div>
+          <div class="social-marks" aria-label="Social media">
+            <span class="social-mark" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </span>
+            <span class="social-mark" aria-label="X">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 3 20 21M20 3 4 21"/></svg>
+            </span>
+            <span class="social-mark" aria-label="Telegram">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.7 3.4 18.5 20c-.24 1.17-.88 1.46-1.78.91l-4.92-3.63-2.37 2.28c-.26.26-.48.48-.98.48l.35-5.01 9.12-8.24c.4-.35-.09-.55-.62-.2L6.03 13.66l-4.84-1.51c-1.05-.33-1.07-1.05.22-1.56L20.33 3.1c.87-.32 1.63.21 1.37.3Z"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="visual-grid">
+          <img class="visual-grid-left" src="/webcoding.jpeg" alt="Web development and software engineering" loading="lazy" decoding="async">
+          <div class="visual-grid-right">
+            <img src="/ecommerce.jpeg" alt="E-commerce customer experience" loading="lazy" decoding="async">
+            <img src="/finance.jpeg" alt="Finance and business analytics" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
     </section>
   </main>
 
