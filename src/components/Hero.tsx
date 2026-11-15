@@ -40,11 +40,11 @@ const Hero = () => {
           </p>
         </div>
 
-        <h1 className="mb-5 max-w-[780px] font-['Roboto',sans-serif] text-[clamp(1rem,6vw,2rem)] leading-[1.1] font-bold tracking-[-0.02em] text-[#262B3E]">
+        <h1 className="mb-5 max-w-[780px] font-[var(--font-questrial)] text-[clamp(1rem,6vw,2rem)] leading-[1.12] font-normal tracking-[-0.015em] text-[#262B3E]">
           Are you a Solo founder, Registered Business or a growing Company?
         </h1>
 
-        <div className="max-w-[680px] font-['Canva_Sans',sans-serif] text-[clamp(0.75rem,2.2vw,1rem)] leading-[1.5] font-[550] text-[#262B3E]">
+        <div className="max-w-[680px] font-[var(--font-questrial)] text-[clamp(0.75rem,2.2vw,1rem)] leading-[1.6] font-normal text-[#262B3E]">
           <p className="mb-0">
             Legit Creations (LGC) is a West African technology startup focused
             on advancing digital experiences and improving business efficiency.
