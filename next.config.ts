@@ -66,14 +66,6 @@ const nextConfig: NextConfig = {
     },
   },
 
-  experimental: {
-    optimizePackageImports: [
-      "lucide-react",
-      "framer-motion",
-      "lodash",
-    ],
-  },
-
   reactStrictMode: true,
 
   images: {
