@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter, Ubuntu } from "next/font/google";
+import { Inter, Questrial, Ubuntu } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
 import {
@@ -22,6 +22,13 @@ const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
+});
+
+const questrial = Questrial({
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+  variable: "--font-questrial",
 });
 
 const ubuntu = Ubuntu({
@@ -115,7 +122,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ubuntu.variable} scroll-smooth`}
+      className={`${inter.variable} ${ubuntu.variable} ${questrial.variable} scroll-smooth`}
     >
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
