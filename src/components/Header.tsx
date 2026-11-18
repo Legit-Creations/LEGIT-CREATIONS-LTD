@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { RevealContainer, RevealLine } from './motion/Reveal';
 
-const navItems = [
+const navItems = [  
   {
     label: 'Services',
     href: '#services',
