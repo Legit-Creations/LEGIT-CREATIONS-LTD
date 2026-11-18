@@ -15,12 +15,13 @@
       --brown-strip: #471F0E69;
       --navy: #1F1F6B;
       --orange: #D98A41;
-      --crimson: #A80F18;
       --brand: #2A1006;
       --header-height: 113px;
     }
+
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       width: 100%;
       min-height: 100%;
@@ -30,6 +31,10 @@
       color: #171717;
       font-family: Arial, Helvetica, sans-serif;
     }
+
+    /* =========================================================
+       HEADER & NAVIGATION
+       ========================================================= */
     .site-header {
       position: sticky;
       top: 0;
@@ -41,6 +46,7 @@
       -webkit-backdrop-filter: blur(20px) saturate(155%);
       backdrop-filter: blur(20px) saturate(155%);
     }
+
     .header-main {
       position: relative;
       display: flex;
@@ -55,25 +61,29 @@
       box-shadow: inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(41,15,5,.08);
       -webkit-backdrop-filter: blur(20px) saturate(155%);
       backdrop-filter: blur(20px) saturate(155%);
-      transition: background-color .3s ease, backdrop-filter .3s ease, box-shadow .3s ease, border-color .3s ease;
+      transition: background-color .3s ease, box-shadow .3s ease, border-color .3s ease;
     }
+
     .site-header[data-scrolled="true"] .header-main {
       border-bottom-color: rgba(255,255,255,.7);
       background: rgb(244 240 235 / 88%);
       box-shadow: 0 8px 28px rgba(41,15,5,.13), inset 0 1px 0 rgba(255,255,255,.9);
     }
+
     .brand {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       color: var(--brand);
-      font-family: Arial, Helvetica, sans-serif;
       line-height: 16px;
       text-decoration: none;
     }
+
     .brand-name { font-size: 19px; font-weight: 700; letter-spacing: .1px; }
     .brand-suffix { font-size: 12px; font-weight: 400; letter-spacing: .5px; }
+
     .header-actions { display: flex; align-items: center; gap: 6px; }
+
     .enquiry-button {
       display: inline-flex;
       min-height: 36px;
@@ -86,15 +96,30 @@
       font-size: 14px;
       font-weight: 600;
       line-height: 20px;
-      text-align: center;
       text-decoration: none;
       white-space: nowrap;
       transition: background-color .2s ease;
     }
+
     .enquiry-button:hover { background: #E49A54; }
-    .search-mark { display: grid; width: 36px; height: 36px; place-items: center; color: #000; }
+
+    .search-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      color: #000;
+    }
+
     .search-mark svg { display: block; width: 22px; height: 22px; }
-    .header-divider { height: 0; margin: 5px 0 0; border: 0; border-top: 1px solid #545454; }
+
+    .header-divider {
+      height: 0;
+      margin: 5px 0 0;
+      border: 0;
+      border-top: 1px solid #545454;
+    }
+
     .nav-rail {
       position: relative;
       display: flex;
@@ -103,17 +128,20 @@
       justify-content: center;
       background: var(--brown-strip);
     }
+
     .nav-shell {
       position: absolute;
       top: -13px;
       display: flex;
       width: 97%;
+      max-width: 1105px;
       height: 40px;
       align-items: center;
       gap: 8px;
       padding: 0 20px;
       background: var(--brown);
     }
+
     .nav-list {
       display: flex;
       min-width: 0;
@@ -128,8 +156,10 @@
       -webkit-mask-image: linear-gradient(to right, black 88%, transparent);
       mask-image: linear-gradient(to right, black 88%, transparent);
     }
+
     .nav-list::-webkit-scrollbar { display: none; }
     .nav-list li { flex-shrink: 0; }
+
     .nav-link {
       display: flex;
       height: 27px;
@@ -143,13 +173,15 @@
       text-decoration: none;
       transition: background-color .2s, color .2s;
     }
+
     .nav-link:hover { background: rgba(255,255,255,.1); }
+
     .nav-link[aria-current="page"] {
-      border-radius: 0;
       background: var(--orange);
       color: #000;
       font-weight: 700;
     }
+
     .nav-icon {
       display: grid;
       width: 17px;
@@ -158,6 +190,7 @@
       place-items: center;
       overflow: hidden;
     }
+
     .nav-icon img {
       display: block;
       width: 100%;
@@ -166,9 +199,12 @@
       filter: brightness(0) invert(1);
       transition: filter .2s, transform .2s;
     }
+
     .nav-link[aria-current="page"] .nav-icon img { filter: brightness(0); }
+
     .nav-link[href="#solutions"] .nav-icon img,
     .nav-link[href="#lgc"] .nav-icon img { transform: scale(1.45); }
+
     .nav-scroll-button {
       display: grid;
       width: 24px;
@@ -183,11 +219,12 @@
       cursor: pointer;
       transition: transform .2s;
     }
+
     .nav-scroll-button svg { display: block; width: 12px; height: 12px; }
     .nav-scroll-button.at-end { transform: rotate(180deg); }
 
     /* =========================================================
-       HERO SECTION & CONTENT
+       HERO SECTION & CONTENT (RESPONSIVE BREATHING ROOM)
        ========================================================= */
     .hero {
       position: relative;
@@ -196,14 +233,15 @@
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
-      min-height: 100vh;
       min-height: 100svh;
-      padding-top: calc(var(--header-height) + 28px);
+      padding-top: calc(var(--header-height) + 24px);
       overflow: hidden;
       background: #F1EEE9;
       color: var(--brown);
     }
+
     .hero-art { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+
     .hero-orb-orange {
       position: absolute;
       top: -9rem;
@@ -214,6 +252,7 @@
       background: rgba(217,138,65,.15);
       filter: blur(48px);
     }
+
     .hero-orb-navy {
       position: absolute;
       bottom: -14rem;
@@ -224,6 +263,7 @@
       background: rgba(31,31,107,.10);
       filter: blur(48px);
     }
+
     .hero-grid {
       position: absolute;
       inset: 0;
@@ -236,143 +276,133 @@
       mask-image: linear-gradient(to bottom, black, transparent 85%);
     }
 
-    /* Middle Hero Content */
     .hero-container {
       width: 100%;
       max-width: 1080px;
       margin: 0 auto;
-      padding:0px 24px 36px;
+      padding: 0 24px 28px;
     }
+
     .hero-lockup {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 18px;
-      margin-bottom: 35px;
+      margin-bottom: 30px;
     }
+
     .hero-emblem {
       width: 55px;
       height: auto;
-      background: transparent;
       flex-shrink: 0;
       object-fit: contain;
     }
+
     .hero-lockup-divider {
       width: 1.5px;
       height: 40px;
       background: #262B3E;
     }
+
     .hero-tagline {
       margin: 0;
       color: #262B3E;
       font-size: 11px;
       font-weight: 700;
-  
       line-height: 1.45;
       text-transform: uppercase;
     }
-.hero-headline {
-  max-width: 780px;
-  margin: 0 0 20px;
-  color: #262B3E;
-  font-family: 'Questrial', sans-serif;
-  font-size: clamp(1rem, 6vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.12;
-}
 
-.hero-description {
-  max-width: 680px;
-  color: #262B3E;
-  font-weight: 600;
-  font-family: 'Questrial', sans-serif;
-  font-size: clamp(0.80rem, 2.2vw, 1rem);
-  line-height: 1.50;
-}
+    .hero-headline {
+      max-width: 780px;
+      margin: 0 0 18px;
+      color: #262B3E;
+      font-family: 'Questrial', sans-serif;
+      font-size: clamp(1.45rem, 5.2vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.18;
+    }
+
+    .hero-description {
+      max-width: 680px;
+      color: #262B3E;
+      font-family: 'Questrial', sans-serif;
+      font-size: clamp(0.86rem, 2vw, 1.02rem);
+      font-weight: 600;
+      line-height: 1.55;
+    }
 
     .hero-description p {
-      margin: 0 0 ;
+      margin: 0 0 14px;
     }
+
     .hero-description p:last-child {
       margin-bottom: 0;
     }
 
     /* =========================================================
-       BOTTOM HERO BANNER (Founder Spotlight & Capabilities)
-       ========================================================= */
-    .hero-banner {
-      position: relative;
-      width: 100%;
-      padding: 20px 16px 0;
-      border-top: 1px solid rgba(41, 15, 5, 0.08);
-      background: linear-gradient(135deg, #F6F7F8 0%, #FFFFFF 55%, #EFF1F4 100%);
-      background-image:
-        linear-gradient(rgba(41,15,5,.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(41,15,5,.04) 1px, transparent 1px),
-        linear-gradient(135deg, #F6F7F8 0%, #FFFFFF 55%, #EFF1F4 100%);
-      background-size: 56px 56px, 56px 56px, 100% 100%;
-    }
-    .hero-banner-inner {
-      display: grid;
-      grid-template-columns: minmax(125px, 36%) 1fr;
-      align-items: center;
-      gap: 16px;
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-  
-
-
-    /* =========================================================
-       LGC BOTTOM VISUAL — COMPANY DETAILS + THREE-IMAGE GRID
-       Desktop reference: 1105 × 560px overall composition.
+       BOTTOM HERO VISUAL (SPACIOUS & BALANCED)
        ========================================================= */
     .hero-visual {
       position: relative;
       z-index: 1;
-      width: 100vw;
-      flex: 0 0 auto;
-      display: block;
-      margin: 0 ;
-      padding: 0;
-      border-radius: 7px 7px 0 0;
+      width: calc(100% - 16px);
+      max-width: 1105px;
+      margin: 0 auto 10px;
+      border-radius: 7px;
       overflow: hidden;
-      margin-top: -20px;
       background: var(--brown);
+      box-shadow: 2px 2px 0 #7C5E52, 4px 4px 0 #CFC4BE;
     }
+
     .hero-visual-meta {
       display: flex;
-      min-width: 0;
       align-items: center;
       justify-content: space-between;
+      padding: 12px 20px;
       background: var(--brown);
     }
+
     .company-ids {
       display: grid;
       color: #E9DED5;
       font-family: 'Questrial', sans-serif;
+      font-size: 11px;
       font-weight: 600;
       letter-spacing: .13em;
-      line-height: 1.3;
+      line-height: 1.35;
+      margin-left: 16px;
     }
+
     .social-marks {
       display: flex;
       align-items: center;
-      gap: clamp(12px, 2vw, 22px);
+      gap: 14px;
       color: #E9DED5;
     }
-    .social-mark svg { display: block; width: 100%; height: 100%; }
+
+    .social-mark {
+      display: grid;
+      width: 18px;
+      height: 18px;
+      place-items: center;
+    }
+
+    .social-mark svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
     .visual-grid {
       display: grid;
-      min-width: 0;
-      min-height: 0;
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr;
-      padding: 0;
+      height: clamp(175px, 34vw, 360px);
+      gap: 4px;
       overflow: hidden;
-      background: none;
     }
+
     .visual-grid img {
       display: block;
       width: 100%;
@@ -382,68 +412,30 @@
       object-fit: cover;
       border-radius: 5px 5px 0 0;
     }
-    .visual-grid-left { grid-column: 1; grid-row: 1; }
+
     .visual-grid-right {
       display: grid;
-      min-width: 0;
-      min-height: 0;
-      grid-column: 2;
-      grid-row: 1;
-      border-radius: ;
       grid-template-rows: 1fr 1fr;
-      gap: 3px;
+      min-height: 0;
+      gap: 4px;
     }
-    .visual-grid-right img { min-height: 0; }
+
+    /* =========================================================
+       RESPONSIVE ADJUSTMENTS
+       ========================================================= */
     @media (max-width: 600px) {
-      .hero-visual {
-        width: calc(100% - 7px);
-        height: auto;
-        grid-template-rows: 72px auto;
-        gap: 70px;
-        margin-bottom: 6px;
-        box-shadow: 2px 2px 0 #7C5E52, 4px 4px 0 #CFC4BE; 
-      }
-      .hero-visual-meta { padding: 9px 5px; 
-        
-      }
-      .company-ids { font-size: 9px; letter-spacing: .13em;margin-left: 18px;
- }
-      .social-marks { gap: 7px; }
-      .social-mark { width: 14px; height: 14px; flex-basis: 21px; }
-      .visual-grid {
-        height: 150px;
-        gap: 3px;
-      }
-      .visual-grid-right { gap:3px; }
-    }
-    @media (min-width: 601px) and (max-width: 900px) {
-      .hero-visual {
-        height: auto;
-        grid-template-rows: 88px min(40.45vw, 447px);
-      }
+      .hero-visual-meta { padding: 9px 14px; }
+      .company-ids { font-size: 9px; }
+      .social-marks { gap: 10px; }
+      .social-mark { width: 15px; height: 15px; }
+      .visual-grid { height: 180px; gap: 3px; }
+      .visual-grid-right { gap: 3px; }
     }
 
     @media (min-width: 768px) {
       .header-main { padding-right: 3%; padding-left: 3%; }
-      .hero-container { padding: 36px 40px 56px; }
+      .hero-container { padding: 0 40px 36px; }
       .hero-lockup { justify-content: flex-start; margin-bottom: 32px; }
-      .hero-banner { padding: 28px 40px 0; }
-      .hero-banner-inner {
-        grid-template-columns: 280px 1fr;
-        gap: 44px;
-      }
-      .banner-content {
-        gap: 18px;
-        padding: 16px 0 32px;
-      }
-      .banner-wordmark { width: 380px; }
-      .trust-pill { padding: 8px 16px; gap: 12px; }
-      .trust-stars svg { width: 17px; height: 17px; }
-      .btn-pill { min-height: 46px; padding: 11px 26px; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
     }
   </style>
 </head>
@@ -490,7 +482,6 @@
         <div class="hero-grid"></div>
       </div>
 
-      <!-- Main Hero Content -->
       <div class="hero-container">
         <div class="hero-lockup">
           <img class="hero-emblem" src="/public/logoNoBkg.svg" alt="Legit Creations emblem" draggable="false">
@@ -512,27 +503,28 @@
         </div>
       </div>
 
-      <!-- LGC company details and three-image visual grid -->
       <section class="hero-visual" aria-label="Legit Creations company details and work imagery">
         <div class="hero-visual-meta">
           <div class="company-ids" aria-label="Company registration details">
             <span>TIN: 2621057130396</span>
             <span>RC: 9721319</span>
           </div>
-<div class="social-marks" aria-label="Social media">
-  <span class="social-mark" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2476 2476" id="instagram"><path d="M825.4 1238c0-227.9 184.7-412.7 412.6-412.7 227.9 0 412.7 184.8 412.7 412.7 0 227.9-184.8 412.7-412.7 412.7-227.9 0-412.6-184.8-412.6-412.7m-223.1 0c0 351.1 284.6 635.7 635.7 635.7s635.7-284.6 635.7-635.7-284.6-635.7-635.7-635.7S602.3 886.9 602.3 1238m1148-660.9c0 82 66.5 148.6 148.6 148.6 82 0 148.6-66.6 148.6-148.6s-66.5-148.5-148.6-148.5-148.6 66.5-148.6 148.5M737.8 2245.7c-120.7-5.5-186.3-25.6-229.9-42.6-57.8-22.5-99-49.3-142.4-92.6-43.3-43.3-70.2-84.5-92.6-142.3-17-43.6-37.1-109.2-42.6-229.9-6-130.5-7.2-169.7-7.2-500.3s1.3-369.7 7.2-500.3c5.5-120.7 25.7-186.2 42.6-229.9 22.5-57.8 49.3-99 92.6-142.4 43.3-43.3 84.5-70.2 142.4-92.6 43.6-17 109.2-37.1 229.9-42.6 130.5-6 169.7-7.2 500.2-7.2 330.6 0 369.7 1.3 500.3 7.2 120.7 5.5 186.2 25.7 229.9 42.6 57.8 22.4 99 49.3 142.4 92.6 43.3 43.3 70.1 84.6 92.6 142.4 17 43.6 37.1 109.2 42.6 229.9 6 130.6 7.2 169.7 7.2 500.3 0 330.5-1.2 369.7-7.2 500.3-5.5 120.7-25.7 186.3-42.6 229.9-22.5 57.8-49.3 99-92.6 142.3-43.3 43.3-84.6 70.1-142.4 92.6-43.6 17-109.2 37.1-229.9 42.6-130.5 6-169.7 7.2-500.3 7.2-330.5 0-369.7-1.2-500.2-7.2M727.6 7.5c-131.8 6-221.8 26.9-300.5 57.5-81.4 31.6-150.4 74-219.3 142.8C139 276.6 96.6 345.6 65 427.1 34.4 505.8 13.5 595.8 7.5 727.6 1.4 859.6 0 901.8 0 1238s1.4 378.4 7.5 510.4c6 131.8 26.9 221.8 57.5 300.5 31.6 81.4 73.9 150.5 142.8 219.3 68.8 68.8 137.8 111.1 219.3 142.8 78.8 30.6 168.7 51.5 300.5 57.5 132.1 6 174.2 7.5 510.4 7.5 336.3 0 378.4-1.4 510.4-7.5 131.8-6 221.8-26.9 300.5-57.5 81.4-31.7 150.4-74 219.3-142.8 68.8-68.8 111.1-137.9 142.8-219.3 30.6-78.7 51.6-168.7 57.5-300.5 6-132.1 7.4-174.2 7.4-510.4s-1.4-378.4-7.4-510.4c-6-131.8-26.9-221.8-57.5-300.5-31.7-81.4-74-150.4-142.8-219.3C2199.4 139 2130.3 96.6 2049 65c-78.8-30.6-168.8-51.6-300.5-57.5-132-6-174.2-7.5-510.4-7.5-336.3 0-378.4 1.4-510.5 7.5" fill="currentColor"></path></svg>
-  </span>
-  <span class="social-mark" aria-label="X">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="x"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" fill="currentColor"></path></svg>
-  </span>
-  <span class="social-mark" aria-label="Telegram">
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" id="telegram"><path d="m12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12c0-6.627-5.373-12-12-12zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" fill="currentColor"></path></svg>  </span>
-</div>        </div>
+          <div class="social-marks" aria-label="Social media">
+            <span class="social-mark" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2476 2476"><path d="M825.4 1238c0-227.9 184.7-412.7 412.6-412.7 227.9 0 412.7 184.8 412.7 412.7 0 227.9-184.8 412.7-412.7 412.7-227.9 0-412.6-184.8-412.6-412.7m-223.1 0c0 351.1 284.6 635.7 635.7 635.7s635.7-284.6 635.7-635.7-284.6-635.7-635.7-635.7S602.3 886.9 602.3 1238m1148-660.9c0 82 66.5 148.6 148.6 148.6 82 0 148.6-66.6 148.6-148.6s-66.5-148.5-148.6-148.5-148.6 66.5-148.6 148.5M737.8 2245.7c-120.7-5.5-186.3-25.6-229.9-42.6-57.8-22.5-99-49.3-142.4-92.6-43.3-43.3-70.2-84.5-92.6-142.3-17-43.6-37.1-109.2-42.6-229.9-6-130.5-7.2-169.7-7.2-500.3s1.3-369.7 7.2-500.3c5.5-120.7 25.7-186.2 42.6-229.9 22.5-57.8 49.3-99 92.6-142.4 43.3-43.3 84.5-70.2 142.4-92.6 43.6-17 109.2-37.1 229.9-42.6 130.5-6 169.7-7.2 500.2-7.2 330.6 0 369.7 1.3 500.3 7.2 120.7 5.5 186.2 25.7 229.9 42.6 57.8 22.4 99 49.3 142.4 92.6 43.3 43.3 70.1 84.6 92.6 142.4 17 43.6 37.1 109.2 42.6 229.9 6 130.6 7.2 169.7 7.2 500.3 0 330.5-1.2 369.7-7.2 500.3-5.5 120.7-25.7 186.3-42.6 229.9-22.5 57.8-49.3 99-92.6 142.3-43.3 43.3-84.6 70.1-142.4 92.6-43.6 17-109.2 37.1-229.9 42.6-130.5 6-169.7 7.2-500.3 7.2-330.5 0-369.7-1.2-500.2-7.2M727.6 7.5c-131.8 6-221.8 26.9-300.5 57.5-81.4 31.6-150.4 74-219.3 142.8C139 276.6 96.6 345.6 65 427.1 34.4 505.8 13.5 595.8 7.5 727.6 1.4 859.6 0 901.8 0 1238s1.4 378.4 7.5 510.4c6 131.8 26.9 221.8 57.5 300.5 31.6 81.4 73.9 150.5 142.8 219.3 68.8 68.8 137.8 111.1 219.3 142.8 78.8 30.6 168.7 51.5 300.5 57.5 132.1 6 174.2 7.5 510.4 7.5 336.3 0 378.4-1.4 510.4-7.5 131.8-6 221.8-26.9 300.5-57.5 81.4-31.7 150.4-74 219.3-142.8 68.8-68.8 111.1-137.9 142.8-219.3 30.6-78.7 51.6-168.7 57.5-300.5 6-132.1 7.4-174.2 7.4-510.4s-1.4-378.4-7.4-510.4c-6-131.8-26.9-221.8-57.5-300.5-31.7-81.4-74-150.4-142.8-219.3C2199.4 139 2130.3 96.6 2049 65c-78.8-30.6-168.8-51.6-300.5-57.5-132-6-174.2-7.5-510.4-7.5-336.3 0-378.4 1.4-510.5 7.5" fill="currentColor"/></svg>
+            </span>
+            <span class="social-mark" aria-label="X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.234 10.162 22.977 0h-2.072l-7.591 8.824L7.251 0H.258l9.168 13.343L.258 24H2.33l8.016-9.318L16.749 24h6.993zm-2.837 3.299-.929-1.329L3.076 1.56h3.182l5.965 8.532.929 1.329 7.754 11.09h-3.182z" fill="currentColor"/></svg>
+            </span>
+            <span class="social-mark" aria-label="Telegram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12c0-6.627-5.373-12-12-12zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z" fill="currentColor"/></svg>
+            </span>
+          </div>
+        </div>
         <div class="visual-grid">
           <img class="visual-grid-left" src="/public/webcoding.jpeg" alt="Web development and software engineering" loading="lazy" decoding="async">
           <div class="visual-grid-right">
-              <img src="/public/ecommerce.jpeg" alt="E-commerce customer experience" loading="lazy" decoding="async">
+            <img src="/public/ecommerce.jpeg" alt="E-commerce customer experience" loading="lazy" decoding="async">
             <img src="/public/finance.jpeg" alt="Finance and business analytics" loading="lazy" decoding="async">
           </div>
         </div>
@@ -567,8 +559,7 @@
       updateNavState();
 
       if ('ResizeObserver' in window) {
-        const observer = new ResizeObserver(syncHeaderHeight);
-        observer.observe(header);
+        new ResizeObserver(syncHeaderHeight).observe(header);
       }
       window.addEventListener('resize', function () {
         syncHeaderHeight();
