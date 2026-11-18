@@ -61,12 +61,12 @@ const Hero = () => {
 
       <section
         aria-label="Legit Creations company details and work imagery"
-        className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible rounded-[17px] bg-[#290F05] shadow-[7px_7px_0_rgba(41,15,5,0.16)] sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
+        className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible bg-[#290F05] shadow-[7px_7px_0_rgba(41,15,5,0.16)] sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
       >
         <div className="flex min-w-0 items-center justify-between gap-2 rounded-t-[17px] px-4 py-3 text-[#E9DED5] sm:gap-6 sm:px-[clamp(22px,7.5%,82px)] sm:py-5">
           <div
             aria-label="Company registration details"
-            className="grid gap-[2px] whitespace-nowrap font-[var(--font-questrial)] text-[10px] font-bold leading-[1.25] tracking-[0.13em] text-[#E9DED5] sm:text-[clamp(12px,1.8vw,19px)] sm:tracking-[0.16em]"
+            className="grid gap-[2px] whitespace-nowrap font-[var(--font-questrial)] text-[10px] leading-[1.25] tracking-[0.13em] text-[#E9DED5] sm:text-[clamp(12px,1.8vw,19px)] sm:tracking-[0.16em]"
           >
             <span>TIN: 2621057130396</span>
             <span>RC: 9721319</span>
