@@ -212,7 +212,7 @@ export default function Header() {
 
           <span
             aria-hidden="true"
-            className="grid size-9 place-items-center text-white"
+            className="grid size-9 place-items-center text-[#290F05]"
           >
             <span className="size-[22px]">
               <SearchIcon />
