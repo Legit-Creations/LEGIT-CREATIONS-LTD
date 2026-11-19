@@ -41,7 +41,7 @@ const Hero = () => {
 
         <div className="max-w-[680px] font-[var(--font-questrial)] text-[clamp(0.86rem,2vw,1.02rem)] leading-[1.55] font-semibold text-[#262B3E]">
           <p className="mb-[14px]">
-            LEGIT CREATIONS LTD. is a West-African technology startup in the INFORMATION & COMMUNICATION sector, focused on Computer / Software programming, Consultancy and related activities.
+            LEGIT CREATIONS LTD. is a West-African tech startup in the Information & Communication sector, focused on Computer Programming, Consultancy and related activities.
           </p>
           <p className="mb-0">
             We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online.
