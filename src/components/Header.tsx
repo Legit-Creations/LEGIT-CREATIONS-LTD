@@ -197,25 +197,22 @@ export default function Header() {
           aria-label="Legit Creations Ltd, home"
           className="flex flex-col items-end font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline"
         >
-          <span className="text-[19px] font-bold tracking-[0.1px]">
+          <span className="text-[19px] font-[600] tracking-[0.1px]">
             LEGIT CREATIONS
-          </span>
-          <span className="text-[12px] font-normal tracking-[0.5px]">
-            ltd.
           </span>
         </a>
 
         <div className="flex items-center gap-[6px]">
           <a
-            href="#contact"
-            className="inline-flex items-center justify-center bg-[#D98A41] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
+            href="#quote"
+            className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
           >
-            Send Enquiry
+            Get a Quote
           </a>
 
           <span
             aria-hidden="true"
-            className="grid size-9 place-items-center text-black"
+            className="grid size-9 place-items-center text-white"
           >
             <span className="size-[22px]">
               <SearchIcon />

@@ -42,25 +42,21 @@ const Hero = () => {
         </div>
 
         <h1 className="mb-5 max-w-[780px] font-[var(--font-questrial)] text-[clamp(1rem,6vw,2rem)] leading-[1.12] font-normal tracking-[-0.015em] text-[#262B3E]">
-          Are you a Solo founder, Registered Business or a growing Company?
+          We Build Custom Software's for Your Online and Commercial Businesses
         </h1>
 
         <div className="max-w-[680px] font-[var(--font-questrial)] text-[clamp(0.75rem,2.2vw,1rem)] leading-[1.6] font-normal text-[#262B3E]">
           <p className="mb-0">
-            Legit Creations (LGC) is a West African technology startup focused
-            on advancing digital experiences and improving business efficiency.
+LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & COMMUNICATION sector, focused on Computer / Software programming, Consultancy and related activities.
           </p>
           <p className="mb-0">
-            We design and build custom software, digital commerce infrastructure
-            and intelligent systems that connect businesses with their customers,
-            simplify commercial activities and enable businesses to operate more
-            effectively online.
+We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online. 
           </p>
         </div>
       </div>
 
       <section
-        aria-label="Legit Creations company details and work imagery"
+        aria-label="Legit Creations company operation sectors"
         className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible bg-[#290F05] shadow-[7px_7px_0_rgba(41,15,5,0.16)] sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
       >
         <div className="flex min-w-0 items-center justify-between gap-2 rounded-t-[17px] px-4 py-3 text-[#E9DED5] sm:gap-6 sm:px-[clamp(22px,7.5%,82px)] sm:py-5">
