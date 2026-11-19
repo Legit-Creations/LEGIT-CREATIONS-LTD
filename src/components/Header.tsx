@@ -185,22 +185,14 @@ export default function Header() {
         <div className="flex items-center gap-[6px]">
           <a
             href="#quote"
-<<<<<<< HEAD
-            className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-[#290F05] no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
-=======
             className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-white no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
->>>>>>> 2b97d65315229a42d28a211baf72dc00a275c2c1
           >
             Get a Quote
           </a>
 
           <span
             aria-hidden="true"
-<<<<<<< HEAD
-            className="grid size-9 place-items-center text-white"
-=======
             className="grid size-9 place-items-center text-[#290F05]"
->>>>>>> 2b97d65315229a42d28a211baf72dc00a275c2c1
           >
             <span className="size-[22px]">
               <SearchIcon />
