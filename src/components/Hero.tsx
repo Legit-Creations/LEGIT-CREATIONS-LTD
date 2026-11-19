@@ -36,15 +36,15 @@ const Hero = () => {
         </div>
 
         <h1 className="mb-[18px] max-w-[780px] font-[var(--font-questrial)] text-[clamp(1.45rem,5.2vw,2.25rem)] leading-[1.18] font-semibold tracking-[-0.015em] text-[#262B3E]">
-          Are you a Solo founder, Registered Business or a growing Company?
+          We Build Custom Software's for Your Online and Commercial Businesses
         </h1>
 
         <div className="max-w-[680px] font-[var(--font-questrial)] text-[clamp(0.86rem,2vw,1.02rem)] leading-[1.55] font-semibold text-[#262B3E]">
           <p className="mb-[14px]">
-            Legit Creations (LGC) is a West African technology startup focused on advancing digital experiences and improving business efficiency.
+            LEGIT CREATIONS LTD. is a West-African technology startup in the INFORMATION & COMMUNICATION sector, focused on Computer / Software programming, Consultancy and related activities.
           </p>
           <p className="mb-0">
-            We design and build custom software, digital commerce infrastructure and intelligent systems that connect businesses with their customers, simplify commercial activities and enable businesses to operate more effectively online.
+            We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online.
           </p>
         </div>
       </div>
