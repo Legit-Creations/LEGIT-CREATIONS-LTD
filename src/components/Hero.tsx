@@ -58,7 +58,6 @@ const Hero = () => {
             aria-label="Company registration details"
             className="ml-4 grid font-[var(--font-questrial)] text-[11px] font-semibold leading-[1.35] tracking-[0.13em] text-[#E9DED5]"
           >
-            <span>TIN: 2621057130396</span>
             <span>RC: 9721319</span>
           </div>
 

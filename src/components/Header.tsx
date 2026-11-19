@@ -4,32 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { RevealContainer, RevealLine } from './motion/Reveal';
 
-const navItems = [  
-  {
-    label: 'Services',
-    href: '#services',
-    icon: '/svg/24-service-svgrepo-com.svg',
-  },
-  {
-    label: 'Solutions',
-    href: '#solutions',
-    icon: '/svg/solution-svgrepo-com.svg',
-  },
-  {
-    label: 'Projects',
-    href: '#projects',
-    icon: '/svg/project-svgrepo-com.svg',
-  },
-  {
-    label: 'Resources & Insights',
-    href: '#insights',
-    icon: '/svg/insights-parchment-svgrepo-com.svg',
-  },
-  {
-    label: 'LGC',
-    href: '#lgc',
-    icon: '/svg/corporate-svgrepo-com.svg',
-  },
+const navItems = [
+  { label: 'Services', href: '#services', icon: (<svg viewBox="0 0 296 296" fill="currentColor" aria-hidden="true"><path d="M90.6 34.5 60.8 61.6c-3 2.9-3.2 7.6-.5 10.7 1.3 1.6 3.4 2.6 5.8 2.6h35.8c4.2 0 7.5-3.2 7.5-7.4 0-4.3-3.3-7.6-7.5-7.6H85.6l15.2-13.9c5.5-5 8.6-12.1 8.6-19.5 0-6.7-2.4-13-6.8-17.6C97.7 3.4 90.6.2 83.2.2c-6.7 0-12.9 2.4-17.6 6.8l-3.1 2.8c-3.1 2.8-3.3 7.5-.5 10.7 1.5 1.6 3.5 2.5 5.6 2.5 1.9 0 3.7-.7 5.1-2l3.1-2.8c2.1-1.8 4.7-2.8 7.5-2.8 3.2 0 6.1 1.3 8.2 3.6 1.9 2.1 2.8 4.7 2.8 7.5 0 3.2-1.2 6-3.7 8.1ZM115 60c1.3 1.1 2.8 1.8 4.7 1.8h29.2v5.3c0 4.2 3.3 7.5 7.5 7.5s7.5-3.3 7.5-7.5v-5.7c4-.5 6.7-3.6 6.7-7.5s-2.7-7-6.7-7.5V7.4c0-2.7-.9-4.3-1.6-5-.7-.7-2-1.9-4.2-2.3-2.7-.4-4.6.2-6.7 2.3-.7.8-37.7 46.9-37.7 46.9-1.3 1.6-1.9 3.7-1.6 5.7.2 1.9 1.3 3.8 2.9 5ZM148.9 29.2v17.7h-13.3l13.3-17.7ZM189.4 74.7c4.3 0 7.6-3.3 7.6-7.5V44.8h22v22.3c0 4.2 3.2 7.5 7.4 7.5 4.3 0 7.6-3.3 7.6-7.5V7.7c0-4.3-3.3-7.6-7.6-7.6-4.2 0-7.4 3.3-7.4 7.6v22.2h-22V7.7c0-4.3-3.3-7.6-7.6-7.6-4.2 0-7.4 3.3-7.4 7.6v59.5c0 4.2 3.2 7.5 7.4 7.5ZM235 88.8H61.5c-25 0-45.6 20.1-45.6 45.1v.5c0 25 20.6 45.4 45.6 45.4H62l-16.6 68.5c-.2.8-.5 1.5-.5 2.3v37c0 4.4 3.9 8.2 8.3 8.2h190c4.4 0 7.7-3.8 7.7-8.2v-37c0-1 0-1.8-.3-2.6l-16.5-68.2h.9c25 0 44.9-20.5 44.9-45.4v-.5c0-25-20-45.1-44.9-45.1ZM63.4 242.8l25.2-105h118.9l25.6 105H63.4Z"/><g><circle cx="119.6" cy="156.2" r="9.1"/><circle cx="148" cy="156.2" r="9.1"/><circle cx="176.4" cy="156.2" r="9.1"/><circle cx="119.6" cy="184.6" r="9.1"/><circle cx="148" cy="184.6" r="9.1"/><circle cx="176.4" cy="184.6" r="9.1"/><circle cx="119.6" cy="213" r="9.1"/><circle cx="148" cy="213" r="9.1"/><circle cx="176.4" cy="213" r="9.1"/></g></svg>) },
+  { label: 'Solutions', href: '#solutions', icon: (<svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true"><path d="M47.6 20.1c-9.8 1.1-17.7 8.8-18.5 18.4-.6 7 2.5 13.4 7.5 17.5 1.5 1.2 2.4 3 2.4 4.9v.1c0 2.8 2.3 5.1 5.2 5.1h11.6c2.9 0 5.2-2.3 5.2-5.1v-.1c0-1.9.9-3.7 2.4-4.9C68 52.2 71 46.6 71 40.3c0-12-10.7-21.5-23.4-20.2ZM59 72H41c-1.1 0-2 .9-2 2 0 3.3 2.7 6 6 6h10c3.3 0 6-2.7 6-6 0-1.1-.9-2-2-2Z"/></svg>) },
+  { label: 'Projects', href: '#projects', icon: (<svg viewBox="0 0 400 400" fill="currentColor" aria-hidden="true"><path d="M237.4 49.5v40h-186v49.7L0 139.2v211.3h400v-301H237.4Zm25 25H375v251h-50v-185.4h-.2v-.9H76.4v-24.7h186Z"/></svg>) },
+  { label: 'Resources & Insights', href: '#insights', icon: (<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10.75 1.5A2.25 2.25 0 0 1 13 3.75v9.03h1.5V3.75A3.75 3.75 0 0 0 10.75 0H.75a.75.75 0 0 0 0 1.5C1.67 1.5 2 1.83 2 2.75v11a3.75 3.75 0 0 0 3.75 3.75h8V16h-8a2.25 2.25 0 0 1-2.25-2.25v-11a3.39 3.39 0 0 0-.22-1.25Z" transform="translate(4.25 3.25)"/><path d="M7.77 17.5A3.29 3.29 0 0 0 10.74 16H7.75C9.31 16 10 15 10 12.75a.75.75 0 0 1 .75-.75h8a.75.75 0 0 1 .75.75v1a3.76 3.76 0 0 1-3.75 3.75ZM10.74 16h5.01A2.25 2.25 0 0 0 18 13.75v-.25h-6.53a5.4 5.4 0 0 1-.73 2.5ZM7 16.75a.72.72 0 0 1 .75-.75v1.5A.72.72 0 0 1 7 16.75ZM.75 5.5A.75.75 0 0 1 0 4.75v-2a2.75 2.75 0 1 1 5.5 0v2a.75.75 0 0 1-.75.75ZM1.5 2.75V4H4V2.75a1.25 1.25 0 1 0-2.5 0Z" transform="translate(2.25 3.25)"/></svg>) },
+  { label: 'LGC', href: '#lgc', icon: (<svg viewBox="0 0 1024 1024" fill="currentColor" aria-hidden="true"><path d="M640 455.1c0-33.8-13.4-64.4-34.9-87.3 11.6-16.9 30.9-27.9 52.9-27.9 35.4 0 64.1 28.7 64.1 64.1s-28.7 64.1-64.1 64.1c-6.7 0-13-1.3-19-3.2.3-3.2 1-6.4 1-9.8ZM512 544.7c49.5 0 89.6-40.1 89.6-89.6s-40.1-89.6-89.6-89.6-89.6 40.1-89.6 89.6 40.1 89.6 89.6 89.6Zm-128 142.5c0-66.3 43.9-87.8 153.6-87.8s153.6 21.5 153.6 87.8v87.9H384Zm-116-91c16.7-57.8 70.4-76.7 120.5-83-21.8-13.2-39.2-32.5-49.9-55.7-9.2-.6-19-1-30-1-78.5 0-110 15.7-110 62.8v76.9Zm-30-40.2c6.7 0 13-1.3 19-3.2-.3-3.3-1-6.5-1-9.9 0-33.8 13.4-64.4 34.9-87.3-11.6-16.8-30.9-27.9-52.9-27.9-35.4 0-64.1 28.7-64.1 64.1s28.6 64.2 64.1 64.2Zm292 39.1c50.1 6.2 103.8 25.2 120.5 83H768v-76.9c0-47.5-31.4-62.9-110-62.9-11 0-20.8.4-30 1.1-10.7 23.2-28.2 42.5-49.9 55.7Z"/></svg>) },
 ];
 function SearchIcon() {
   return (
@@ -250,17 +230,9 @@ export default function Header() {
                     }`}
                   >
                     <span className="grid size-[17px] shrink-0 place-items-center overflow-hidden">
-                      <img
-                        src={item.icon}
-                        alt=""
-                        aria-hidden="true"
-                        draggable={false}
-                        className={`h-full w-full object-contain transition-[filter,transform] duration-200 ${
-                          activeLink === item.href
-                            ? 'brightness-0'
-                            : 'brightness-0 invert'
-                        } ${item.href === '#solutions' || item.href === '#lgc' ? 'scale-[1.45]' : ''}`}
-                      />
+                      <span className={`h-full w-full transition-transform duration-200 ${activeLink === item.href ? 'text-black' : 'text-white'} ${item.href === '#solutions' || item.href === '#lgc' ? 'scale-[1.45]' : ''}`}>
+                        {item.icon}
+                      </span>
                     </span>
                     <RevealLine>{item.label}</RevealLine>
                   </a>
