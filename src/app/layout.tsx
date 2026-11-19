@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter, Questrial, Ubuntu } from "next/font/google";
+import { Arimo, Inter, Lato, Questrial, Ubuntu } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
 import {
@@ -17,6 +17,19 @@ import {
   SITE_DESCRIPTION_LONG,
   SITE_DESCRIPTION,
 } from "@/config/branding";
+
+const arimo = Arimo({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-arimo",
+});
+
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
+  variable: "--font-lato",
+});
 
 const inter = Inter({
   subsets: ["latin"],
@@ -122,7 +135,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${ubuntu.variable} ${questrial.variable} scroll-smooth`}
+      className={`${inter.variable} ${ubuntu.variable} ${questrial.variable} ${arimo.variable} ${lato.variable} scroll-smooth`}
     >
       <body className="antialiased bg-obsidian text-bone selection:bg-gold/30">
         {/* Client-side protection */}
