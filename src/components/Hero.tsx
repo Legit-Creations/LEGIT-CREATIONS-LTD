@@ -35,7 +35,6 @@ const Hero = () => {
           </p>
         </div>
 
-<<<<<<< HEAD
         <h1 className="mb-5 max-w-[780px] font-[var(--font-questrial)] text-[clamp(1rem,6vw,2rem)] leading-[1.12] font-normal tracking-[-0.015em] text-[#262B3E]">
           We Build Custom Software's for Your Online and Commercial Businesses
         </h1>
@@ -46,39 +45,18 @@ LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & 
           </p>
           <p className="mb-0">
 We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online. 
-=======
-        <h1 className="mb-[18px] max-w-[780px] font-[var(--font-questrial)] text-[clamp(1.45rem,5.2vw,2.25rem)] leading-[1.18] font-semibold tracking-[-0.015em] text-[#262B3E]">
-          We Build Custom Software's for Your Online and Commercial Businesses
-        </h1>
-
-        <div className="max-w-[680px] font-[var(--font-questrial)] text-[clamp(0.86rem,2vw,1.02rem)] leading-[1.55] font-semibold text-[#262B3E]">
-          <p className="mb-[14px]">
-            LEGIT CREATIONS LTD. is a West-African tech startup in the Information & Communication sector, focused on Computer Programming, Consultancy and related activities.
-          </p>
-          <p className="mb-0">
-            We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online.
->>>>>>> 2b97d65315229a42d28a211baf72dc00a275c2c1
           </p>
         </div>
       </div>
 
       <section
-<<<<<<< HEAD
         aria-label="Legit Creations company operation sectors"
         className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible bg-[#290F05] shadow-[7px_7px_0_rgba(41,15,5,0.16)] sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
-=======
-        aria-label="Legit Creations company details and work imagery"
-        className="relative z-[1] mx-auto mb-[10px] w-[calc(100%-16px)] max-w-[1105px] flex-none overflow-hidden rounded-[7px] bg-[#290F05] shadow-[2px_2px_0_#7C5E52,4px_4px_0_#CFC4BE]"
->>>>>>> 2b97d65315229a42d28a211baf72dc00a275c2c1
       >
         <div className="flex items-center justify-between bg-[#290F05] px-5 py-3">
           <div
             aria-label="Company registration details"
-<<<<<<< HEAD
             className="grid gap-[2px] whitespace-nowrap font-[var(--font-questrial)] text-[10px] leading-[1.25] tracking-[0.13em] text-[#E9DED5] sm:text-[clamp(12px,1.8vw,19px)] sm:tracking-[0.16em]"
-=======
-            className="ml-4 grid font-[var(--font-questrial)] text-[11px] font-semibold leading-[1.35] tracking-[0.13em] text-[#E9DED5]"
->>>>>>> 2b97d65315229a42d28a211baf72dc00a275c2c1
           >
             <span>RC: 9721319</span>
           </div>
