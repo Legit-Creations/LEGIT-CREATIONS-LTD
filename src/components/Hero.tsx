@@ -51,9 +51,9 @@ We build custom software, online shops, and smart systems that help solo founder
 
       <section
         aria-label="Legit Creations company operation sectors"
-        className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible bg-[#290F05] shadow-[7px_7px_0_rgba(41,15,5,0.16)] sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
+        className="relative z-[1] mx-auto mb-4 grid h-auto w-[calc(100%-16px)] flex-none grid-rows-[72px_auto] gap-[7px] overflow-visible sm:mb-[18px] sm:w-[calc(100%-32px)] sm:grid-rows-[88px_min(40.45vw,447px)] sm:gap-[9px] md:h-[560px] md:max-w-[1105px] md:grid-rows-[104px_447px]"
       >
-        <div className="flex items-center justify-between bg-[#290F05] px-5 py-3">
+        <div className="flex items-center justify-between px-5 py-3">
           <div
             aria-label="Company registration details"
             className="grid gap-[2px] whitespace-nowrap font-[var(--font-questrial)] text-[10px] leading-[1.25] tracking-[0.13em] text-[#E9DED5] sm:text-[clamp(12px,1.8vw,19px)] sm:tracking-[0.16em]"
