@@ -132,7 +132,9 @@ export const BRAND: BrandConfig = {
   taxId: "2621057130396",
 
   socialLinks: {
-    telegram: "https://t.me/legitcreations",
+    whatsapp: "https://whatsapp.com/channel/0029Va5ijkz2ER6oUVAaLv0e",
+    x: "https://x.com/legitcreations_?s=11",
+    telegram: "https://t.me/legitcreationsltd",
   },
 
   regulatoryIds: [
