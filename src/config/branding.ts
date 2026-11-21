@@ -1,17 +1,7 @@
 /**
  * Centralized Branding & Identity Configuration
- * Single source of truth for all brand-related data, metadata, and schema generation
- * 
- * This file is imported by:
- * - src/app/layout.tsx (global metadata)
- * - src/app pages (page-specific metadata)
- * - SEO utilities
- * - Structured data generators
+ * Single source of truth for brand-related data, metadata, and schema generation.
  */
-
-// ============================================================================
-// TYPES
-// ============================================================================
 
 export interface Address {
   streetAddress: string;
@@ -37,7 +27,7 @@ export interface BrandConfig {
   tagline: string;
   domain: string;
   logo: string;
-  svg:string;
+  svg: string;
   favicon: string;
   ogImage: string;
   email: string;
@@ -56,19 +46,40 @@ export interface BrandConfig {
 
 export interface OrganizationSchema {
   "@context": string;
-  "@graph": Array<Record<string, any>>;
+  "@graph": Array<Record<string, unknown>>;
 }
 
-// ============================================================================
-// BRAND CONFIGURATION
-// ============================================================================
+const DEFAULT_SITE_URL = "https://legitcreations.com.ng";
+
+/**
+ * Normalize a configured site URL to its HTTP(S) origin.
+ * Paths, query strings, and trailing slashes are intentionally discarded so
+ * every canonical URL is built from one stable origin.
+ */
+export function normalizeSiteUrl(
+  value: string,
+  fallback = DEFAULT_SITE_URL,
+): string {
+  const parseOrigin = (candidate: string): string | null => {
+    try {
+      const url = new URL(candidate.trim());
+      return url.protocol === "http:" || url.protocol === "https:"
+        ? url.origin
+        : null;
+    } catch {
+      return null;
+    }
+  };
+
+  return parseOrigin(value) ?? parseOrigin(fallback) ?? DEFAULT_SITE_URL;
+}
 
 export const BRAND: BrandConfig = {
   name: "Legit Creations",
   legalName: "LEGIT CREATIONS LTD",
   shortName: "LGC",
   tagline: "Performance is the Product",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://legitcreations.com.ng",
+  domain: process.env.NEXT_PUBLIC_SITE_URL || DEFAULT_SITE_URL,
   logo: "/logo.jpeg",
   svg: "/logo.svg",
   favicon: "/favicon.ico",
@@ -143,16 +154,15 @@ export const BRAND: BrandConfig = {
   ],
 };
 
-// ============================================================================
-// JSON-LD SCHEMA FACTORY
-// ============================================================================
+export const SITE_URL = normalizeSiteUrl(BRAND.domain);
+
+/** Build an absolute URL on the canonical site origin. */
+export function toSiteUrl(path: string): string {
+  return new URL(path.replace(/^\/+/, ""), `${SITE_URL}/`).toString();
+}
 
 /**
- * Generate Organization + LocalBusiness JSON-LD schema
- * This is the canonical entity data that informs search engines and AI crawlers
- * of Legit Creations' corporate identity, regulatory compliance, and authority.
- *
- * Reference: https://schema.org/Organization, https://schema.org/LocalBusiness
+ * Generate Organization + LocalBusiness JSON-LD schema.
  */
 export function generateOrganizationSchema(): OrganizationSchema {
   return {
@@ -160,14 +170,14 @@ export function generateOrganizationSchema(): OrganizationSchema {
     "@graph": [
       {
         "@type": ["Organization", "LocalBusiness"],
-        "@id": `${SITE_URL}/#organization`,
+        "@id": toSiteUrl("#organization"),
         name: BRAND.name,
         legalName: BRAND.legalName,
         slogan: BRAND.tagline,
         description: BRAND.descriptions.long,
         url: SITE_URL,
-        logo: new URL(BRAND.logo, `${SITE_URL}/`).toString(),
-        svg: new URL(BRAND.svg, `${SITE_URL}/`).toString(),
+        logo: toSiteUrl(BRAND.logo),
+        svg: toSiteUrl(BRAND.svg),
         email: BRAND.email,
         taxID: BRAND.taxId,
         address: {
@@ -193,14 +203,10 @@ export function generateOrganizationSchema(): OrganizationSchema {
   };
 }
 
-/**
- * Generate page-specific metadata
- * Use this for individual pages to override global defaults
- */
 export function generatePageMetadata(
   pageTitle: string,
   pageDescription: string,
-  pageKeywords?: string[]
+  pageKeywords?: string[],
 ) {
   return {
     title: pageTitle,
@@ -209,28 +215,19 @@ export function generatePageMetadata(
   };
 }
 
-// ============================================================================
-// METADATA TEMPLATES
-// ============================================================================
-
 export const METADATA_TEMPLATES = {
   titleTemplate: "%s | Legit Creations",
   defaultTitle: `${BRAND.name} | ${BRAND.tagline}`,
   defaultDescription: BRAND.descriptions.short,
 };
 
-// ============================================================================
-// EXPORT CONSTANTS FOR EASY ACCESS
-// ============================================================================
-
-export const SITE_URL = new URL(BRAND.domain).origin;
 export const SITE_NAME = BRAND.name;
 export const SITE_DESCRIPTION = BRAND.descriptions.short;
 export const SITE_DESCRIPTION_LONG = BRAND.descriptions.long;
 export const SITE_KEYWORDS = BRAND.keywords;
 
-// Export as relative paths. Next.js metadataBase handles the domain automatically.
+// Keep asset references relative; Next.js metadataBase resolves them centrally.
 export const SITE_LOGO = BRAND.logo;
 export const SITE_FAVICON = BRAND.favicon;
 export const SITE_OG_IMAGE = BRAND.ogImage;
-export const SITE_SVG = BRAND.svg
+export const SITE_SVG = BRAND.svg;

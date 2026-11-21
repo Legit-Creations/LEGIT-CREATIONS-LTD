@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 @theme {
-  /* Ocean Clay Palette & Typography Mapping */
-  --font-display: var(--font-ubuntu), sans-serif;
+  /* LGC warm neutral palette — semantic utility names retained for compatibility. */
+  --font-display: var(--font-questrial), sans-serif;
   --font-body: var(--font-inter), sans-serif;
 
-  --color-obsidian: #22333B;     /* 1. Deep Ocean (Dark Base / Background) */
-  --color-bone: #EFF3F1;         /* 2. Pale Ice (Light Surface / Text) */
-  --color-teal: #5E8B7E;         /* 3. Ocean Teal (Graphics / Accents / Borders) */
-  --color-gold: #C7A17A;         /* 4. Clay / Warm Gold (CTAs / Highlights) */
+  --color-obsidian: #F1EEE9; /* Warm ivory surfaces */
+  --color-bone: #290F05;     /* Deep brand brown */
+  --color-teal: #1F1F6B;     /* Corporate navy accent */
+  --color-gold: #D98A41;     /* Brand orange accent */
 
   --font-size-huge: clamp(3rem, 10vw, 8rem);
 }
@@ -21,7 +21,6 @@
     font-family: var(--font-body);
   }
 
-  /* Asset Protection */
   .asset-protected {
     user-select: none;
     -webkit-user-select: none;
@@ -52,10 +51,11 @@
   }
 }
 
-/* Hide visual scrollbar chrome while keeping native scrolling enabled. */
+/* Hide scrollbar chrome while preserving native scrolling. */
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar,
@@ -66,17 +66,6 @@ body::-webkit-scrollbar,
   height: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-}
-
-
 /* Visible keyboard focus without changing the resting visual design. */
 :where(a, button, input, select, textarea, [tabindex]):focus-visible {
   outline: 2px solid #D98A41;
@@ -85,6 +74,10 @@ html {
 
 /* Respect reduced-motion preferences across CSS-driven interactions. */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   *,
   *::before,
   *::after {
