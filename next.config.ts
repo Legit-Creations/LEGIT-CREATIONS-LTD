@@ -8,13 +8,15 @@ const stsHeader =
 
 const cspHeader = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline'",
+  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' blob: data:",
   "media-src 'self' blob: data:",
-  "connect-src 'self'",
+  "connect-src 'self' https://vitals.vercel-analytics.com https://va.vercel-scripts.com",
   "font-src 'self' data:",
-  "object-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
   "frame-ancestors 'none'",
 ].join("; ");
 
