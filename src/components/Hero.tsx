@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="mx-auto w-full max-w-[1080px] px-6 pb-7 md:px-10 md:pb-9">
         <div className="mb-[30px] flex items-center justify-center gap-[18px] md:mb-8 md:justify-start">
           <Image
-            src="/logo-primary.png"
+            src="/logoNoBkg.svg"
             alt="Legit Creations emblem"
             width={55}
             height={55}
