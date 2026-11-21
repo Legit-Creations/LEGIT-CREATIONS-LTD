@@ -5,7 +5,6 @@ import { Arimo, Inter, Lato, Questrial, Ubuntu } from "next/font/google";
 import "./globals.css";
 import ClientProtector from "@/components/ClientProtector";
 import {
-  BRAND,
   METADATA_TEMPLATES,
   generateOrganizationSchema,
   SITE_LOGO,

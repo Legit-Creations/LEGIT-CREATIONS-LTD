@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { RevealContainer, RevealLine } from './motion/Reveal';
 
@@ -214,7 +215,7 @@ export default function Header() {
             : 'border-white/55 bg-[#E9E9E9]/68 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),inset_0_-1px_0_rgba(41,15,5,0.08)]'
         }`}
       >
-        <a
+        <Link
           href="/"
           aria-label="Legit Creations Ltd, home"
           className="flex flex-col items-end rounded-sm font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline transition-colors duration-200 ease-out hover:text-[#A85D25] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D98A41] motion-reduce:transition-none"
@@ -222,7 +223,7 @@ export default function Header() {
           <span className="text-[19px] font-[600] tracking-[0.1px]">
             LEGIT CREATIONS
           </span>
-        </a>
+        </Link>
 
         <div className="flex items-center gap-[6px]">
           <a
