@@ -18,7 +18,7 @@ const Hero = () => {
       <div className="mx-auto w-full max-w-[1080px] px-6 pb-7 md:px-10 md:pb-9">
         <div className="mb-[30px] flex items-center justify-center gap-[18px] md:mb-8 md:justify-start">
           <Image
-            src="/logoNoBkg.svg"
+            src="/logo-primary.png"
             alt="Legit Creations emblem"
             width={55}
             height={55}
@@ -43,8 +43,8 @@ const Hero = () => {
           <p className="mb-0">
 LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & COMMUNICATION sector, focused on Computer / Software programming, Consultancy and related activities.
           </p>
-          <p className="mb-0">
-We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online. 
+          <p className="mt-4 mb-0">
+            We build custom software, online shops, and smart systems that help solo founders, registered businesses, and growing companies serve their customers better and work more efficiently online.
           </p>
         </div>
       </div>
