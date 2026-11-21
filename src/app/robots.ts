@@ -2,17 +2,12 @@ import type { MetadataRoute } from "next";
 import { SITE_URL } from "@/config/branding";
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = SITE_URL || "https://legitcreations.com.ng";
   return {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: [
-        "/api/",
-        "/admin/",
-      ],
+      disallow: ["/api/", "/admin/"],
     },
-
-    sitemap: `${baseUrl}/sitemap.xml`,
+    sitemap: new URL("/sitemap.xml", `${SITE_URL}/`).toString(),
   };
 }

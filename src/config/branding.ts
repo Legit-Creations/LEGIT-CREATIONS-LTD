@@ -160,14 +160,14 @@ export function generateOrganizationSchema(): OrganizationSchema {
     "@graph": [
       {
         "@type": ["Organization", "LocalBusiness"],
-        "@id": `${BRAND.domain}/#organization`,
+        "@id": `${SITE_URL}/#organization`,
         name: BRAND.name,
         legalName: BRAND.legalName,
         slogan: BRAND.tagline,
         description: BRAND.descriptions.long,
-        url: BRAND.domain,
-        logo: `${BRAND.domain}${BRAND.logo}`,
-        svg: `${BRAND.domain}${BRAND.svg}`,
+        url: SITE_URL,
+        logo: new URL(BRAND.logo, `${SITE_URL}/`).toString(),
+        svg: new URL(BRAND.svg, `${SITE_URL}/`).toString(),
         email: BRAND.email,
         taxID: BRAND.taxId,
         address: {
@@ -223,7 +223,7 @@ export const METADATA_TEMPLATES = {
 // EXPORT CONSTANTS FOR EASY ACCESS
 // ============================================================================
 
-export const SITE_URL = BRAND.domain;
+export const SITE_URL = new URL(BRAND.domain).origin;
 export const SITE_NAME = BRAND.name;
 export const SITE_DESCRIPTION = BRAND.descriptions.short;
 export const SITE_DESCRIPTION_LONG = BRAND.descriptions.long;
