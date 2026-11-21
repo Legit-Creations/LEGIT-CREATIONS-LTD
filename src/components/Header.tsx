@@ -247,7 +247,9 @@ export default function Header() {
       {/* Primary navigation */}
       <nav aria-label="Primary">
         <div className="relative flex h-[33px] w-full justify-center bg-[#471F0E69]">
-          <div className="absolute top-[-13px] flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5">
+          <div
+            className={`absolute ${showTopBar ? 'top-[-13px]' : 'top-[calc(env(safe-area-inset-top)+15px)]'} flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5 transition-[top] duration-300 ease-out`}
+          >
             <RevealContainer
               className="min-w-0 flex-1"
               staggerDelay={0.055}
