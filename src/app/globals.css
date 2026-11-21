@@ -75,3 +75,22 @@ html {
     scroll-behavior: auto;
   }
 }
+
+
+/* Visible keyboard focus without changing the resting visual design. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #D98A41;
+  outline-offset: 4px;
+}
+
+/* Respect reduced-motion preferences across CSS-driven interactions. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

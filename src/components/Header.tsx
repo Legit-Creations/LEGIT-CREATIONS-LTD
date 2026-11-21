@@ -197,6 +197,7 @@ export default function Header() {
       className="sticky top-0 z-50 w-full bg-[#E9E9E9]/72 pt-[env(safe-area-inset-top)] backdrop-blur-xl [-webkit-backdrop-filter:blur(20px)_saturate(155%)] supports-[backdrop-filter]:bg-[#E9E9E9]/72"
       data-scrolled={isScrolled ? 'true' : 'false'}
     >
+      <a href="#hero" className="absolute left-4 top-2 z-[100] -translate-y-[160%] rounded-sm bg-[#290F05] px-4 py-2 text-sm font-semibold text-white shadow-lg transition-transform duration-200 ease-out focus:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D98A41] motion-reduce:transition-none">Skip to main content</a>
       {/* Main header */}
       <motion.div
         initial={shouldReduceMotion ? false : { opacity: 0, y: -8 }}
@@ -205,7 +206,7 @@ export default function Header() {
           duration: shouldReduceMotion ? 0 : 0.45,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className={`relative flex h-[75px] w-full items-center justify-between border-b px-4 backdrop-saturate-150 transition-[transform,margin-bottom,background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out md:px-[3%] [border-image:linear-gradient(to_right,transparent,rgba(255,255,255,0.72),transparent)_1] [-webkit-backdrop-filter:blur(20px)_saturate(155%)] backdrop-blur-xl ${
+        className={`relative flex h-[75px] w-full items-center justify-between border-b px-4 backdrop-saturate-150 transition-[transform,margin-bottom,background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none md:px-[3%] [border-image:linear-gradient(to_right,transparent,rgba(255,255,255,0.72),transparent)_1] [-webkit-backdrop-filter:blur(20px)_saturate(155%)] backdrop-blur-xl ${
           showTopBar ? 'translate-y-0 mb-0' : '-translate-y-full -mb-[75px]'
         } ${
           isScrolled
@@ -216,7 +217,7 @@ export default function Header() {
         <a
           href="/"
           aria-label="Legit Creations Ltd, home"
-          className="flex flex-col items-end font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline"
+          className="flex flex-col items-end rounded-sm font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline transition-colors duration-200 ease-out hover:text-[#A85D25] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D98A41] motion-reduce:transition-none"
         >
           <span className="text-[19px] font-[600] tracking-[0.1px]">
             LEGIT CREATIONS
@@ -226,7 +227,7 @@ export default function Header() {
         <div className="flex items-center gap-[6px]">
           <a
             href="#quote"
-            className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-white no-underline transition-colors duration-200 hover:bg-[#E49A54] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
+            className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-white no-underline transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#E49A54] hover:shadow-[0_5px_14px_rgba(41,15,5,0.2)] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
           >
             Get a Quote
           </a>
@@ -248,7 +249,7 @@ export default function Header() {
       <nav aria-label="Primary">
         <div className="relative flex h-[33px] w-full justify-center bg-[#471F0E69]">
           <div
-            className={`absolute ${showTopBar ? 'top-[-13px]' : 'top-[calc(env(safe-area-inset-top)+15px)]'} flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5 transition-[top] duration-300 ease-out`}
+            className={`absolute ${showTopBar ? 'top-[-13px]' : 'top-[calc(env(safe-area-inset-top)+15px)]'} flex h-10 w-[97%] items-center gap-2 bg-[#290F05] px-5 transition-[top] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none`}
           >
             <RevealContainer
               className="min-w-0 flex-1"
@@ -266,7 +267,7 @@ export default function Header() {
                     aria-current={
                       activeLink === item.href ? 'page' : undefined
                     }
-                    className={`flex h-[27px] items-center gap-[6px] px-[8px] font-[var(--font-arimo)] text-[14px] whitespace-nowrap no-underline transition-colors hover:bg-white/10 ${
+                    className={`flex h-[27px] items-center gap-[6px] px-[8px] font-[var(--font-arimo)] text-[14px] whitespace-nowrap no-underline transition-[transform,background-color,color] duration-200 ease-out hover:-translate-y-px hover:bg-white/12 focus-visible:relative focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] motion-reduce:transition-none ${
                       activeLink === item.href
                         ? 'rounded-none bg-[#D98A41] font-bold text-black'
                         : 'font-normal text-white'
@@ -292,7 +293,7 @@ export default function Header() {
                   ? 'Scroll menu back to start'
                   : 'Scroll menu for more links'
               }
-              className={`grid size-6 shrink-0 place-items-center rounded-full bg-[#FFFFFFDB] text-[#290F05] ring-3 ring-[#FFFFFF9C] transition-transform duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] ${
+              className={`grid size-6 shrink-0 place-items-center rounded-full bg-[#FFFFFFDB] text-[#290F05] ring-3 ring-[#FFFFFF9C] transition-transform duration-200 ease-out hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D98A41] ${
                 navAtEnd ? 'rotate-180' : ''
               }`}
             >
