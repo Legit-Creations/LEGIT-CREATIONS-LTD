@@ -82,7 +82,7 @@ LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & 
 
         <div className="grid h-[clamp(175px,34vw,360px)] min-h-0 grid-cols-2 gap-1 overflow-hidden">
           <Image
-            src="/webcoding.jpeg"
+            src="https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com/coding.jpeg"
             alt="Web development and software engineering"
             width={1200}
             height={800}
@@ -92,7 +92,7 @@ LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & 
           />
           <div className="grid min-h-0 grid-rows-2 gap-1">
             <Image
-              src="/ecommerce.jpeg"
+              src="https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com/ecommerce.jpeg"
               alt="E-commerce customer experience"
               width={1200}
               height={800}
@@ -101,7 +101,7 @@ LEGIT CREATIONS LTD. is a West-African  technology startup in the INFORMATION & 
               className="h-full w-full min-h-0 min-w-0 rounded-t-[5px] object-cover"
             />
             <Image
-              src="/finance.jpeg"
+              src="https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com/finance.jpeg"
               alt="Finance and business analytics"
               width={1200}
               height={800}
