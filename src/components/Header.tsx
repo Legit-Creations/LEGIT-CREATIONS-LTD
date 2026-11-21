@@ -72,6 +72,7 @@ export default function Header() {
   }
   
   const [isScrolled, setIsScrolled] = useState(false);
+  const [showTopBar, setShowTopBar] = useState(true);
 
   // Keep the hero layout synchronized with the header's real rendered height.
   useEffect(() => {
@@ -95,16 +96,54 @@ export default function Header() {
 
   useEffect(() => {
     let scrollFrame = 0;
+    let lastScrollY = window.scrollY;
+    let direction = 0;
+    let distanceInDirection = 0;
 
     const updateScrollState = () => {
       if (scrollFrame) return;
 
       scrollFrame = window.requestAnimationFrame(() => {
         scrollFrame = 0;
-        const nextValue = window.scrollY > 12;
+
+        const currentScrollY = Math.max(0, window.scrollY);
+        const nextScrolledValue = currentScrollY > 12;
+
         setIsScrolled((currentValue) =>
-          currentValue === nextValue ? currentValue : nextValue,
+          currentValue === nextScrolledValue ? currentValue : nextScrolledValue,
         );
+
+        if (currentScrollY === 0) {
+          direction = 0;
+          distanceInDirection = 0;
+          lastScrollY = 0;
+          setShowTopBar(true);
+          return;
+        }
+
+        const delta = currentScrollY - lastScrollY;
+        lastScrollY = currentScrollY;
+
+        if (Math.abs(delta) < 1) return;
+
+        const nextDirection = delta > 0 ? 1 : -1;
+
+        if (nextDirection !== direction) {
+          direction = nextDirection;
+          distanceInDirection = 0;
+        }
+
+        distanceInDirection += Math.abs(delta);
+
+        if (distanceInDirection >= 50) {
+          if (direction === 1 && currentScrollY > 50) {
+            setShowTopBar(false);
+          } else if (direction === -1) {
+            setShowTopBar(true);
+          }
+
+          distanceInDirection = 0;
+        }
       });
     };
 
@@ -166,7 +205,9 @@ export default function Header() {
           duration: shouldReduceMotion ? 0 : 0.45,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className={`relative flex h-[75px] w-full items-center justify-between border-b px-4 backdrop-saturate-150 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out md:px-[3%] [border-image:linear-gradient(to_right,transparent,rgba(255,255,255,0.72),transparent)_1] [-webkit-backdrop-filter:blur(20px)_saturate(155%)] backdrop-blur-xl ${
+        className={`relative flex h-[75px] w-full items-center justify-between border-b px-4 backdrop-saturate-150 transition-[transform,margin-bottom,background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out md:px-[3%] [border-image:linear-gradient(to_right,transparent,rgba(255,255,255,0.72),transparent)_1] [-webkit-backdrop-filter:blur(20px)_saturate(155%)] backdrop-blur-xl ${
+          showTopBar ? 'translate-y-0 mb-0' : '-translate-y-full -mb-[75px]'
+        } ${
           isScrolled
             ? 'border-white/70 bg-[#F4F0EB]/88 shadow-[0_8px_28px_rgba(41,15,5,0.13),inset_0_1px_0_rgba(255,255,255,0.9)]'
             : 'border-white/55 bg-[#E9E9E9]/68 shadow-[inset_0_1px_0_rgba(255,255,255,0.85),inset_0_-1px_0_rgba(41,15,5,0.08)]'
