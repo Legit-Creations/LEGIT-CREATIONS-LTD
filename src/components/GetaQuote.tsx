@@ -2,6 +2,11 @@
 
 import { FormEvent, useState } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import {
+  RevealContainer,
+  RevealLine,
+  RevealSection,
+} from "@/components/motion/Reveal";
 
 const inquiryTypes = [
   "General Inquiry",
@@ -27,22 +32,21 @@ export default function GetaQuote() {
       {/* Header */}
       <section className="border-b border-black/10">
         <div className="mx-auto max-w-7xl px-6 py-24 sm:px-8 lg:px-12 lg:py-32">
-          <div className="max-w-4xl">
-            <p className="mb-6 text-[10px] font-medium uppercase tracking-[0.45em] text-black/45">
+          <RevealContainer className="max-w-4xl" staggerDelay={0.075}>
+            <RevealLine as="p" className="mb-6 text-[10px] font-medium uppercase tracking-[0.45em] text-black/45">
               Contact
-            </p>
+            </RevealLine>
 
             <h1 className="font-display text-6xl uppercase leading-[0.88] tracking-[-0.04em] sm:text-7xl lg:text-[9rem]">
-              Let&apos;s
-              <br />
-              Talk.
+              <RevealLine as="span">Let&apos;s</RevealLine>
+              <RevealLine as="span">Talk.</RevealLine>
             </h1>
 
-            <p className="mt-10 max-w-2xl text-base leading-8 text-black/55 sm:text-lg">
+            <RevealLine as="p" className="mt-10 max-w-2xl text-base leading-8 text-black/55 sm:text-lg">
               For business inquiries, partnerships, digital projects,
               investment opportunities, Software-as-a-Service and Business 2 Bussiness Integration or other matters concerning Legit Creations LTD, use the form below.
-            </p>
-          </div>
+            </RevealLine>
+          </RevealContainer>
         </div>
       </section>
 
@@ -50,7 +54,7 @@ export default function GetaQuote() {
       <section className="mx-auto max-w-7xl px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="grid gap-16 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
           {/* Information */}
-          <div>
+          <RevealSection>
             <p className="text-[9px] uppercase tracking-[0.45em] text-black/40">
               Get in touch
             </p>
@@ -78,10 +82,10 @@ export default function GetaQuote() {
 <p> SaaS &amp; B2B",</p>
               </div>
             </div>
-          </div>
+          </RevealSection>
 
           {/* Form */}
-          <div>
+          <RevealSection delay={0.12}>
             {submitted ? (
               <div className="border border-black/10 bg-white p-8 sm:p-12">
                 <CheckCircle2
@@ -241,7 +245,7 @@ export default function GetaQuote() {
                 </div>
               </form>
             )}
-          </div>
+          </RevealSection>
         </div>
       </section>
 
