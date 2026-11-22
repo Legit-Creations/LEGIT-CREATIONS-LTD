@@ -8,7 +8,7 @@ const inquiryTypes = [
   "Business / Partnership",
   "Digital Integration",
   "Investment / Growth",
-  "Other",
+  "SaaS / B2B",
 ];
 
 export default function GetaQuote() {
@@ -40,8 +40,7 @@ export default function GetaQuote() {
 
             <p className="mt-10 max-w-2xl text-base leading-8 text-black/55 sm:text-lg">
               For business inquiries, partnerships, digital projects,
-              investment opportunities, or other matters concerning Contra
-              Atlantis Group, use the form below.
+              investment opportunities, Software-as-a-Service and Business 2 Bussiness Integration or other matters concerning Legit Creations LTD, use the form below.
             </p>
           </div>
         </div>
@@ -76,6 +75,7 @@ export default function GetaQuote() {
                 <p>Digital Integration</p>
                 <p>Investment &amp; Growth</p>
                 <p>General Inquiries</p>
+<p> SaaS &amp; B2B",</p>
               </div>
             </div>
           </div>
