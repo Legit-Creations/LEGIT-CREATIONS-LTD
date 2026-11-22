@@ -35,7 +35,7 @@ const Hero = () => {
           </p>
         </div>
 
-        <h1 className="mb-5 max-w-[780px] font-[var(--font-questrial)] text-[clamp(1rem,6vw,2rem)] leading-[1.12] font-normal tracking-[-0.015em] text-[#262B3E]">
+        <h1 className="mb-5 max-w-[780px] font-[var(--font-questrial)] text-[clamp(1rem,6vw,2rem)] leading-[1.12] font-bold tracking-[-0.015em] text-[#262B3E]">
           We Build Custom Software&apos;s for Your Online and Commercial Businesses
         </h1>
 
