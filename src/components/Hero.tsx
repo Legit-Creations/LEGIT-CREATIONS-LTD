@@ -28,7 +28,7 @@ const Hero = () => {
             draggable={false}
           />
           <span aria-hidden="true" className="h-10 w-[1.5px] bg-[#262B3E]" />
-          <p className="m-0 font-[700] uppercase leading-[1.45] text-[#262B3E] text-[11px]">
+          <p className="m-0 font-bold uppercase leading-[1.45] text-[#262B3E] text-[11px]">
             Efficiency Is
             <br />
             The Product
