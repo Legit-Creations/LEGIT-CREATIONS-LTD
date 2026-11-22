@@ -220,7 +220,7 @@ export default function Header() {
           aria-label="Legit Creations Ltd, home"
           className="flex flex-col items-end rounded-sm font-[var(--font-arimo)] leading-[16px] text-[#2A1006] no-underline transition-colors duration-200 ease-out hover:text-[#A85D25] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D98A41] motion-reduce:transition-none"
         >
-          <span className="text-[19px] font-[600] tracking-[0.1px]">
+          <span className="text-[19px] font-bold tracking-[0.1px]">
             LEGIT CREATIONS
           </span>
         </Link>
