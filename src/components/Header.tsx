@@ -227,7 +227,7 @@ export default function Header() {
 
         <div className="flex items-center gap-[6px]">
           <a
-            href="#quote"
+            href="/contact"
             className="inline-flex items-center justify-center bg-[#290F05] px-3 py-2 text-center font-[var(--font-lato)] text-[12px] leading-5 font-semibold whitespace-nowrap text-white no-underline transition-[transform,background-color,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:bg-[#E49A54] hover:shadow-[0_5px_14px_rgba(41,15,5,0.2)] active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#290F05]"
           >
             Get a Quote
