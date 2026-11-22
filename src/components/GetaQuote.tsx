@@ -253,7 +253,7 @@ export default function GetaQuote() {
       <footer className="border-t border-black/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-10 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12">
           <p className="text-[9px] uppercase tracking-[0.35em] text-black/35">
-            Contra Atlantis Group
+            LEGIT CREATIONS LTD
           </p>
 
           <p className="text-[9px] uppercase tracking-[0.3em] text-black/30">
