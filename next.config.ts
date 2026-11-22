@@ -10,7 +10,7 @@ const cspHeader = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' blob: data:",
+  "img-src 'self' blob: data: https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com",
   "media-src 'self' blob: data:",
   "connect-src 'self' https://vitals.vercel-analytics.com https://va.vercel-scripts.com",
   "font-src 'self' data:",
