@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f8f7">
+  <title>Services — Legit Creations Ltd (HTML design test)</title>
+  <meta name="description" content="HTML design prototype for the Legit Creations Ltd Services page.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Questrial&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f8f8f7;
+      --ink: #080808;
+      --brand: #290f05;
+      --orange: #d98a41;
+      --muted: #a6a6a6;
+      --font-display: "Questrial", sans-serif;
+      --font-body: "Inter", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { background: var(--page); scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--page);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    .services-test {
+      width: 100%;
+      overflow: hidden;
+      background: var(--page);
+    }
+    .services-intro {
+      width: min(100% - 15%, 1440px);
+      margin-inline: auto;
+      padding-top: clamp(86px, 15.2vw, 150px);
+      padding-bottom: clamp(48px, 6.2vw, 68px);
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: clamp(22px, 5.6vw, 46px);
+      min-height: 40px;
+      margin-bottom: clamp(74px, 10.5vw, 94px);
+      color: #3d2c25;
+    }
+    .eyebrow-icon {
+      width: 40px;
+      height: 40px;
+      color: var(--orange);
+      flex: 0 0 auto;
+    }
+    .eyebrow-label {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: .22em;
+    }
+    h1 {
+      max-width: 940px;
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: clamp(39px, 6.1vw, 68px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    h1 strong { display: block; font-weight: 800; }
+    .intro-kicker {
+      margin: 16px 0 0;
+      font-size: clamp(14px, 2.15vw, 18px);
+      line-height: 1.35;
+      font-weight: 800;
+      letter-spacing: .005em;
+    }
+    .intro-copy {
+      max-width: 800px;
+      margin: clamp(68px, 9.5vw, 82px) 0 0;
+      font-size: clamp(18px, 2.65vw, 22px);
+      line-height: 1.55;
+      font-weight: 400;
+      letter-spacing: -.015em;
+    }
+    .service-feature {
+      position: relative;
+      isolation: isolate;
+      min-height: clamp(360px, 43vw, 510px);
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background-color: #111;
+      background-image:
+        linear-gradient(90deg, rgba(0,0,0,.99) 0%, rgba(0,0,0,.96) 37%, rgba(0,0,0,.76) 58%, rgba(0,0,0,.08) 100%),
+        url("https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com/service1.jpeg");
+      background-position: center, center 42%;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .feature-content {
+      width: min(100% - 10.5%, 1380px);
+      margin-inline: auto;
+      padding-block: 42px;
+    }
+    .feature-title {
+      max-width: 590px;
+      margin: 0;
+      font-family: var(--font-body);
+      font-size: clamp(32px, 5vw, 48px);
+      line-height: .99;
+      letter-spacing: -.045em;
+      font-weight: 750;
+    }
+    .feature-description {
+      max-width: 440px;
+      margin: 12px 0 22px;
+      color: rgba(255,255,255,.64);
+      font-size: clamp(14px, 1.8vw, 16px);
+      line-height: 1.35;
+    }
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      width: min(100%, 790px);
+    }
+    .feature-card {
+      min-height: 144px;
+      padding: 16px 15px 17px;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 7px;
+      background: rgba(22,22,22,.76);
+      box-shadow: 0 8px 28px rgba(0,0,0,.12);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .card-label {
+      display: block;
+      margin-bottom: 10px;
+      color: rgba(255,255,255,.56);
+      font-size: 10px;
+      line-height: 1.2;
+      letter-spacing: .035em;
+      font-weight: 500;
+    }
+    .card-copy {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(14px, 1.75vw, 17px);
+      line-height: 1.24;
+      font-weight: 700;
+      letter-spacing: -.02em;
+    }
+    @media (min-width: 1100px) {
+      .service-feature { min-height: 500px; }
+      .feature-content { padding-block: 60px; }
+      .feature-cards { width: min(72%, 900px); }
+      .feature-card { min-height: 154px; padding: 18px; }
+    }
+    @media (max-width: 640px) {
+      .services-intro {
+        width: calc(100% - 15%);
+        padding-top: 104px;
+        padding-bottom: 50px;
+      }
+      .eyebrow { margin-bottom: 76px; gap: 42px; }
+      h1 { font-size: clamp(36px, 8vw, 48px); line-height: 1.1; }
+      .intro-kicker { margin-top: 14px; font-size: 14px; }
+      .intro-copy { margin-top: 70px; font-size: 18px; line-height: 1.58; }
+      .service-feature {
+        min-height: 540px;
+        align-items: flex-end;
+        background-image:
+          linear-gradient(180deg, rgba(0,0,0,.03) 0%, rgba(0,0,0,.28) 28%, rgba(0,0,0,.94) 66%, #000 100%),
+          url("https://6a8vioqz79gk6zhf.public.blob.vercel-storage.com/service1.jpeg");
+        background-position: center, 63% top;
+        background-size: cover, auto 72%;
+      }
+      .feature-content { width: calc(100% - 12%); padding-block: 30px 34px; }
+      .feature-title { max-width: 360px; font-size: 35px; }
+      .feature-description { max-width: 340px; margin: 9px 0 17px; font-size: 13px; }
+      .feature-cards { gap: 7px; }
+      .feature-card { min-height: 132px; padding: 11px 9px 12px; border-radius: 5px; }
+      .card-label { margin-bottom: 8px; font-size: 8px; line-height: 1.25; }
+      .card-copy { font-size: clamp(11px, 3vw, 13px); line-height: 1.25; }
+    }
+    @media (max-width: 380px) {
+      .services-intro { width: calc(100% - 12%); }
+      .feature-content { width: calc(100% - 10%); }
+      .feature-cards { grid-template-columns: 1fr; }
+      .feature-card { min-height: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+  <main class="services-test">
+    <section class="services-intro" aria-labelledby="services-heading">
+      <div class="eyebrow">
+        <svg class="eyebrow-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5.5 27.5h7.2l5.1 4.1c1.1.9 2.5 1.4 3.9 1.4h11.1c2.4 0 4.3-1.9 4.3-4.3 0-1.5-1.2-2.7-2.7-2.7H23.2" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.5 25.2h7.8c1.5 0 2.9.5 4.1 1.4l2.4 1.8c.9.7 2 1.1 3.1 1.1h5.2M7 24v12.5h5.7V24H7Z" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M21 15.2c0-2.1 1.7-3.8 3.8-3.8s3.8 1.7 3.8 3.8-1.7 3.8-3.8 3.8-3.8-1.7-3.8-3.8ZM31.1 17.1c0-1.8 1.4-3.2 3.2-3.2s3.2 1.4 3.2 3.2-1.4 3.2-3.2 3.2M16.2 20.4c0-1.8 1.4-3.2 3.2-3.2M16.8 24.1c.4-2.1 2.3-3.7 4.5-3.7h10.1c2.5 0 4.5 2 4.5 4.5M19.4 9.8l-1.2-1.2M28.1 8.5l.4-1.7M36.9 10.7l1.2-1.2" stroke="currentColor" stroke-width="1.45" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <p class="eyebrow-label">SERVICES</p>
+      </div>
+      <h1 id="services-heading">LGC is Built for the Hard <strong>MIDDLE PART.</strong></h1>
+      <p class="intro-kicker">WITH A SENIOR TEAM OF FEW, BUT NO JUNIORS IN YOUR ACCOUNT.</p>
+      <p class="intro-copy">We program and develop digital products that can solve real business problems - from business websites to complex web/digital, and commercial applications.</p>
+    </section>
+
+    <section class="service-feature" aria-labelledby="engineering-heading">
+      <div class="feature-content">
+        <h2 class="feature-title" id="engineering-heading">Digital Product<br>Engineering</h2>
+        <p class="feature-description">LGC Core public services involves digital engineering and programming.</p>
+        <div class="feature-cards">
+          <article class="feature-card">
+            <span class="card-label">THIS IS WHAT WE BUILD</span>
+            <p class="card-copy">Web &amp; Mobile app, Plug-ins, and API</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-label">THIS IS HOW IT SELLS AND RUNS YOUR BUSINESS</span>
+            <p class="card-copy">Online stores, Bookings/Payment system, and Automations</p>
+          </article>
+          <article class="feature-card">
+            <span class="card-label">THIS IS HOW IT LOOKS</span>
+            <p class="card-copy">UI/UX Research, Prototype &amp; Product planning</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
