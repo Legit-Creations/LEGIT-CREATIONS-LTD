@@ -185,7 +185,7 @@ To complete the website efficiently and intelligently, the next work should focu
 - SMEDAN SUID: SUID-1525-5384-6931-3100
 - Tax ID: 2621057130396
 - Email: legitcre@legitcreations.com.ng
-- Telegram: https://t.me/legitcreations
+- Telegram: https://t.me/legitcreationsltd
 - Office Location: Kiagbodo, Delta State, Nigeria
 
 ## Legal and Compliance Notes
@@ -221,7 +221,7 @@ For business inquiries, email:
 
 For updates and quick access:
 
-- Telegram: https://t.me/legitcreations
+- Telegram: https://t.me/legitcreationsltd
 
 ## Summary
 
