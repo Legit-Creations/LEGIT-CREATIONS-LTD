@@ -79,7 +79,7 @@ export default function GetaQuote() {
                 <p>Digital Integration</p>
                 <p>Investment &amp; Growth</p>
                 <p>General Inquiries</p>
-<p> SaaS &amp; B2B",</p>
+<p>SaaS &amp; B2B</p>
               </div>
             </div>
           </RevealSection>
